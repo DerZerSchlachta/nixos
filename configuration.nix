@@ -17,27 +17,14 @@
       ./modules/system/nvidia.nix
       ./modules/system/bluetooth.nix
       ./modules/system/networking.nix
+      ./modules/system/users.nix
+      ./modules/system/displayManager.nix
     ];
 
   # Bootloader.
   boot.loader.grub.enable = false;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "desktop"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  networking.usePredictableInterfaceNames = true;
-
-  networking.interfaces.eno1.macAddress = "02:00:00:00:00:01";
-
 
 
   # Set your time zone.
@@ -57,31 +44,6 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    theme = "sddm-astronaut-theme";
-    extraPackages = with pkgs; [
-      kdePackages.qtsvg
-      kdePackages.qtmultimedia
-      kdePackages.qtvirtualkeyboard
-    ];
-  };
-  services.desktopManager.plasma6.enable = true;
-
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
-  };
-
-  # Configure console keymap
-  console.keyMap = "de";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -110,26 +72,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.johannes = {
-    isNormalUser = true;
-    description = "Johannes Bartschies";
-    extraGroups = [ "networkmanager" "wheel" "dialout"];
-    shell = pkgs.nushell;
-    packages = with pkgs; [
-      vscode.fhs
-      thunderbird
-      discord
-      jellyfin-media-player
-      neofetch
-    ];
 
-    openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHZTXGgU26qfBpAfXsdTLwBaTmYfEvRbU6P9jBmTDk2/ administrator@WIN-OLCT0S163I8"
-  ];
-  };
-
-  users.defaultUserShell = pkgs.nushell;
 
   programs.steam = {
     enable = true;
@@ -170,10 +113,6 @@ environment.systemPackages = with pkgs; [
   git
   wget
 
-  networkmanager-openvpn     # Enables OpenVPN support in NetworkManager
-  networkmanagerapplet     # GUI tray app for managing connections
-  openvpn
-
   mangohud  #displaying performance stats through an ingame-overlay
   heroic  #Epic games launcher for Linux
   
@@ -207,22 +146,7 @@ environment.systemPackages = with pkgs; [
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-  networking.firewall = {
-    enable = true;
-    # Ports for kdeconnect
-    allowedTCPPortRanges = [
-      { 
-        from = 1714; 
-        to = 1764; 
-      }
-    ];
-    allowedUDPPortRanges = [
-      { 
-        from = 1714;
-        to = 1764;
-      }
-    ];
-  };
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
