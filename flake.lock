@@ -1,0 +1,103 @@
+{
+  "nodes": {
+    "go-typer-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744060146,
+        "narHash": "sha256-VQVdrMk5nFuXTe2hr99SdnnksMOCsBOGN+K4YWrDP1Y=",
+        "owner": "prime-run",
+        "repo": "go-typer",
+        "rev": "407493aa54761353b13af95a2d326580f70980e1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "prime-run",
+        "repo": "go-typer",
+        "type": "github"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745033012,
+        "narHash": "sha256-KjBMsjCzIOWgDqTZMYIriPFmHiQcCb2RhuDh5JF0VVc=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "ae84885d9b6b62dc58ccd300e9ab321a3fd9f9c7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nix-flakes": {
+      "inputs": {
+        "go-typer-src": "go-typer-src",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "togo-src": "togo-src"
+      },
+      "locked": {
+        "lastModified": 1745231217,
+        "narHash": "sha256-KaTVPSxZc3P9v5Z+QGh2yw1JOc9qT6FB4+ircCDsnos=",
+        "owner": "valenbar",
+        "repo": "nix-flakes",
+        "rev": "7a9a5d4c4e4ba6b51d49748c3deacd78839a8091",
+        "type": "github"
+      },
+      "original": {
+        "owner": "valenbar",
+        "repo": "nix-flakes",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1744932701,
+        "narHash": "sha256-fusHbZCyv126cyArUwwKrLdCkgVAIaa/fQJYFlCEqiU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "b024ced1aac25639f8ca8fdfc2f8c4fbd66c48ef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nix-flakes": "nix-flakes",
+        "nixpkgs": "nixpkgs"
+      }
+    },
+    "togo-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1743784083,
+        "narHash": "sha256-8ENflRp2CAcw/pohjAFI4ZhefJy8G+fTlMyYJlQ8sGI=",
+        "owner": "prime-run",
+        "repo": "togo",
+        "rev": "4be26ff859fd969a2d387947e7e72a5d47362c26",
+        "type": "github"
+      },
+      "original": {
+        "owner": "prime-run",
+        "repo": "togo",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
