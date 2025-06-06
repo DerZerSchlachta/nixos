@@ -96,27 +96,18 @@ environment.systemPackages = with pkgs; [
   (sddm-astronaut.override {
     embeddedTheme = "astronaut";
   })
-
-  freerdp
-
-  inkscape  #Opensource SVG creator
-  gimp3   #Opensource Photo editor
-  tldr  #helpful commandline tool which explains a given command
+  
   refind  #Bootmanager for a nicer dualboot experience
   efibootmgr  #Utility needed for Efi Bootmanagers (e.i. for rEFInd)
-  librewolf #Privacy-focused FireFox Fork -> better Browser
-  cool-retro-term #retro-looking console (not very practical)
 
-  nil
-  usbutils
-  arduino-ide
-  git
-  wget
+  librewolf #Privacy-focused FireFox Fork -> better Browser, should be the system-standart for every user
 
-  mangohud  #displaying performance stats through an ingame-overlay
-  heroic  #Epic games launcher for Linux
-  
-  nixFlakes.packages.x86_64-linux.deej
+
+  nil # nix language server
+
+  usbutils  # needed for usb / serial management
+  arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
+  nixFlakes.packages.x86_64-linux.deej  #Small Programm to read and Apply Inputs from arduino-audio controllers, based on the "deej" system
 ];
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
