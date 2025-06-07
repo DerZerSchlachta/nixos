@@ -5,7 +5,14 @@
 { pkgs, inputs, nixFlakes, ... }:
 
 {
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  
+  nix.settings = {
+    experimental-features = ["nix-command" "flakes"];
+
+    #Cachix for nix-gaming:
+    substituters = ["https://nix-gaming.cachix.org"];
+    trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
+  };
 
   environment.sessionVariables = {
     FLAKE = "/home/johannes/nixos";
@@ -70,13 +77,10 @@
     #media-session.enable = true;
   };
 
-  nixpkgs.config.allowUnfree = true;
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
 
 
-  # Nix Gaming Overlay (optional for system packages)
-  nixpkgs.overlays = [
-    inputs.nix-gaming.overlays.default
-  ];
 
   programs.steam = {
     enable = true;
@@ -88,16 +92,10 @@
     localNetworkGameTransfers.openFirewall = true;
     gamescopeSession.enable = true;
   };
+programs.gamemode.enable = true;
 
-  programs.gamemode.enable = true;
-
-  # Vulkan/DXVK and wine stuff (system-side)
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
-
-
-
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -120,13 +118,6 @@ environment.systemPackages = with pkgs; [
   zip
 
   nil # nix language server
-
-  #gaming related:
-  vulkan-tools
-  vulkan-loader
-  libvulkan
-  dxvk
-  vkd3d-proton
 
   usbutils  # needed for usb / serial management
   arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
