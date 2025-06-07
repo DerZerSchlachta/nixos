@@ -17,6 +17,7 @@
       ./modules/system/nvidia.nix
       ./modules/system/bluetooth.nix
       ./modules/system/networking.nix
+      ./modules/system/vpn.nix
       ./modules/system/users.nix
       ./modules/system/displayManager.nix
     ];
@@ -69,10 +70,13 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  nixpkgs.config.allowUnfree = true;
 
 
+  # Nix Gaming Overlay (optional for system packages)
+  nixpkgs.overlays = [
+    inputs.nix-gaming.overlays.default
+  ];
 
   programs.steam = {
     enable = true;
@@ -84,10 +88,16 @@
     localNetworkGameTransfers.openFirewall = true;
     gamescopeSession.enable = true;
   };
-programs.gamemode.enable = true;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  programs.gamemode.enable = true;
+
+  # Vulkan/DXVK and wine stuff (system-side)
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
+
+
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -102,8 +112,21 @@ environment.systemPackages = with pkgs; [
 
   librewolf #Privacy-focused FireFox Fork -> better Browser, should be the system-standart for every user
 
+  spotify
+  steam-run
+  curl
+  gnugrep
+  unzip
+  zip
 
   nil # nix language server
+
+  #gaming related:
+  vulkan-tools
+  vulkan-loader
+  libvulkan
+  dxvk
+  vkd3d-proton
 
   usbutils  # needed for usb / serial management
   arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor

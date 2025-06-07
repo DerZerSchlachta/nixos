@@ -5,7 +5,7 @@
     isNormalUser = true;
     description = "Johannes Bartschies";
     extraGroups = [ "networkmanager" "wheel" "dialout" ];
-    home = "home/johannes";
+    home = "/home/johannes";
 
     shell = pkgs.nushell;
     openssh.authorizedKeys.keys = [
@@ -32,6 +32,12 @@
       #Productivity:
       vscode.fhs  #Visual Studio Code
       libreoffice
+      nextcloud-client
+
+      #Nextcloud-Calendar Integration:
+      kdePackages.korganizer
+      kdePackages.akonadi
+      kdePackages.kdepim-addons
 
       #Creativity:
       inkscape  #Opensource SVG creator
@@ -39,7 +45,6 @@
 
       #Gaming:
       mangohud  #displaying performance stats through an ingame-overlay
-      heroic  #Epic games launcher for Linux
     ];
   };
 
