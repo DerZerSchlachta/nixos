@@ -13,11 +13,13 @@
 
     nix-gaming.url = "github:fufexan/nix-gaming";
 
-    refind-nix.url = "github:GrandtheUK/refind-nix"; #a nixos compatable version of rEFInd Bootmanager, aka. the nicest looking bootmanager
+    refind-nix.url = "github:DerZerSchlachta/refind-nix"; #a nixos compatable version of rEFInd Bootmanager, aka. the nicest looking bootmanager
+
+
   };
 
 
-  outputs = { self, nixpkgs, home-manager, nix-flakes, refind-nix, nix-gaming, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-flakes, refind-nix, nix-gaming,... }@inputs:
   {
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -35,8 +37,6 @@
           home-manager.users.johannes = ./home.nix;
           home-manager.backupFileExtension = "backup";
         }
-
-        # Add nix-gaming modules here (see step 3)
       ];
     };
   };

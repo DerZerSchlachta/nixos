@@ -32,10 +32,6 @@
       ./modules/system/rEFInd.nix
     ];
 
-  # Bootloader.
-  boot.loader.grub.enable = false;
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
 
   # Set your time zone.
@@ -56,97 +52,110 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services = {
 
-  services.tailscale.enable = true;
+    printing.enable = true; #printer support
 
-  services.openssh.enable = true; #enabling ssh-connections
+    tailscale.enable = true;  #tailscale support
+    openssh.enable = true; #enabling ssh-connections
+    
+    flatpak.enable = true;  #installing (non-declarative) packages through flatpak / flathub
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
+    pulseaudio.enable = false;
+
+    #Pipewire Audiosystem, which is superior to pulseaudio!
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+
+      lowLatency = {
+        enable = true;
+        # optional:
+        quantum = 64;
+        rate = 48000;
+      };
+    };
+
+  };
 
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
 
-  #All the Gaming Setup Stuff:
+  security.rtkit.enable = true;
 
-  # Required by pipewireLowLatency
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+  programs = {
 
-    lowLatency = {
+    steam = {
       enable = true;
-      # optional:
-      quantum = 64;
-      rate = 48000;
+      extraPackages = with pkgs; [
+        mangohud
+        gamemode
+      ];
+      remotePlay.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
+      gamescopeSession.enable = true;
+    };
+
+    gamemode.enable = true;
+
+    nh = {
+      enable = true;
+      flake = "/home/johannes/nixos";
     };
   };
 
-  security.rtkit.enable = true;
 
-  programs.steam = {
-    enable = true;
-    extraPackages = with pkgs; [
-      mangohud
-      gamemode
-    ];
-    remotePlay.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-    gamescopeSession.enable = true;
-  };
-programs.gamemode.enable = true;
-
-virtualisation.docker.enable = true; #should enable Docker
+  virtualisation.docker.enable = true; #should enable Docker
 
 
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-environment.systemPackages = with pkgs; [
+  # List packages installed in system profile:
+  environment.systemPackages = with pkgs; [
 
-  (sddm-astronaut.override {
-    embeddedTheme = "astronaut";
-  })
+    (sddm-astronaut.override {
+      embeddedTheme = "astronaut";
+    })
 
-  librewolf #Privacy-focused FireFox Fork -> better Browser, should be the system-standart for every user
+    librewolf #Privacy-focused FireFox Fork -> better Browser, should be the system-standart for every user
 
-  spotify
-  steam-run
-  curl
-  gnugrep
-  unzip
-  zip
+    spotify
 
-  nil # nix language server
+    #(terminal)-utility
+    steam-run
+    curl
+    gnugrep
+    unzip
+    zip
+    efibootmgr
 
-  inputs.nix-gaming.packages.${pkgs.system}.wine-tkg
-  inputs.nix-gaming.packages.${pkgs.system}.winetricks-git
-  inputs.nix-gaming.packages.${pkgs.system}.wineprefix-preparer
-  #inputs.nix-gaming.packages.${pkgs.system}.wine
-  #inputs.nix-gaming.packages.${pkgs.system}.vkd3d-proton
+    nil # nix language server
 
-  lutris
-  bottles
+    #nix-gaming stuff, doesn't really work
+    #inputs.nix-gaming.packages.${pkgs.system}.wine-tkg
+    #inputs.nix-gaming.packages.${pkgs.system}.winetricks-git
+    #inputs.nix-gaming.packages.${pkgs.system}.wineprefix-preparer
+    #inputs.nix-gaming.packages.${pkgs.system}.wine
+    #inputs.nix-gaming.packages.${pkgs.system}.vkd3d-proton
 
-  usbutils  # needed for usb / serial management
-  arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
-  nixFlakes.packages.x86_64-linux.deej  #Small Programm to read and Apply Inputs from arduino-audio controllers, based on the "deej" system
-];
+    lutris  #game launcher, should be able to launch most windows games using wine
+    bottles #another game launcher, if lutris doesn't work
+    heroic  #epic games launcher for linux
+
+    usbutils  # needed for usb / serial management
+    arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
+    nixFlakes.packages.x86_64-linux.deej  #Small Programm to read and Apply Inputs from arduino-audio controllers, based on the "deej" system
+  ];
+
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     fira-code
   ];
 
-  programs.nh = {
-    enable = true;
-    flake = "/home/johannes/nixos";
-  };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

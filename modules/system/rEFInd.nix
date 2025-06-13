@@ -2,16 +2,24 @@
 
 {
   imports = [
-    inputs.refind-nix.nixosModules.default
+    inputs.refind-nix.nixosModules.refind
   ];
 
-  boot.loader.refind-nix = {
-    enable = true;
-    theme = "minimal"; # Or other themes like "regular", "black", etc.
-    extraConfig = ''
-      timeout 10
-      scanfor manual,external,hdbios
-      showtools shell,memtest,gdisk,about,exit,reboot,shutdown
-    '';
+  boot.loader = {
+    
+    grub.enable = false;
+    systemd-boot.enable = false;
+
+    efi = {
+      efiSysMountPoint = "/boot/EFI";
+      canTouchEfiVariables = true;
+    };
+    refind = {
+      enable = true;
+      maxGenerations = 10;
+      themes = [
+        "/home/johannes/nixos/misc/themes/refind/refind-glassy"
+        ];
+    };
   };
 }
