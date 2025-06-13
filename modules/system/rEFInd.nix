@@ -18,7 +18,7 @@
       enable = true;
       maxGenerations = 10;
       themes = [
-        "/home/johannes/nixos/misc/themes/refind/refind-glassy"
+   
         ];
     };
   };
