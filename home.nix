@@ -1,10 +1,8 @@
-{ ...}:
+{...}:
 {
   home.username = "johannes";
   home.homeDirectory = "/home/johannes";
   home.stateVersion = "24.11";
-
-
 
   programs.home-manager.enable = true;
 

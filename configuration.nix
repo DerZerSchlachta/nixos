@@ -27,6 +27,9 @@
       ./modules/system/vpn.nix
       ./modules/system/users.nix
       ./modules/system/displayManager.nix
+      inputs.nix-gaming.nixosModules.pipewireLowLatency
+      inputs.nix-gaming.nixosModules.platformOptimizations
+      ./modules/system/rEFInd.nix
     ];
 
   # Bootloader.
@@ -63,24 +66,29 @@
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
 
-  security.rtkit.enable = true;
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+
+  #All the Gaming Setup Stuff:
+
+  # Required by pipewireLowLatency
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    lowLatency = {
+      enable = true;
+      # optional:
+      quantum = 64;
+      rate = 48000;
+    };
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-
+  security.rtkit.enable = true;
 
   programs.steam = {
     enable = true;
@@ -94,8 +102,9 @@
   };
 programs.gamemode.enable = true;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+virtualisation.docker.enable = true; #should enable Docker
+
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -104,9 +113,6 @@ environment.systemPackages = with pkgs; [
   (sddm-astronaut.override {
     embeddedTheme = "astronaut";
   })
-  
-  refind  #Bootmanager for a nicer dualboot experience
-  efibootmgr  #Utility needed for Efi Bootmanagers (e.i. for rEFInd)
 
   librewolf #Privacy-focused FireFox Fork -> better Browser, should be the system-standart for every user
 
@@ -118,6 +124,15 @@ environment.systemPackages = with pkgs; [
   zip
 
   nil # nix language server
+
+  inputs.nix-gaming.packages.${pkgs.system}.wine-tkg
+  inputs.nix-gaming.packages.${pkgs.system}.winetricks-git
+  inputs.nix-gaming.packages.${pkgs.system}.wineprefix-preparer
+  #inputs.nix-gaming.packages.${pkgs.system}.wine
+  #inputs.nix-gaming.packages.${pkgs.system}.vkd3d-proton
+
+  lutris
+  bottles
 
   usbutils  # needed for usb / serial management
   arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
