@@ -15,11 +15,13 @@
 
     refind-nix.url = "github:DerZerSchlachta/refind-nix"; #a nixos compatable version of rEFInd Bootmanager, aka. the nicest looking bootmanager
 
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
 
   };
 
 
-  outputs = { self, nixpkgs, home-manager, nix-flakes, refind-nix, nix-gaming,... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-flakes, refind-nix, nix-gaming, spicetify-nix,... }@inputs:
   {
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       specialArgs = {

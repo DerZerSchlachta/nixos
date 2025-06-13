@@ -122,8 +122,6 @@
 
     librewolf #Privacy-focused FireFox Fork -> better Browser, should be the system-standart for every user
 
-    spotify
-
     #(terminal)-utility
     steam-run
     curl
