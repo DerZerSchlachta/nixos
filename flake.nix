@@ -17,11 +17,10 @@
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
-
   };
 
 
-  outputs = { self, nixpkgs, home-manager, nix-flakes, refind-nix, nix-gaming, spicetify-nix,... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-flakes, refind-nix, nix-gaming,... }@inputs:
   {
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       specialArgs = {

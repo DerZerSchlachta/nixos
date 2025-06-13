@@ -1,4 +1,4 @@
-{...}:
+{inputs, ...}:
 {
   home.username = "johannes";
   home.homeDirectory = "/home/johannes";
@@ -12,6 +12,5 @@
     ./modules/home-manager/mpv.nix
     ./modules/home-manager/nushell.nix
     ./modules/home-manager/kdeconnect.nix
-    ./modules/home-manager/spicetify.nix
   ];
 }

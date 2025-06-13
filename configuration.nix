@@ -30,6 +30,8 @@
       inputs.nix-gaming.nixosModules.pipewireLowLatency
       inputs.nix-gaming.nixosModules.platformOptimizations
       ./modules/system/rEFInd.nix
+      inputs.spicetify-nix.nixosModules.default
+      ./modules/system/spicetify.nix
     ];
 
 

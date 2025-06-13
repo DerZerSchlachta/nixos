@@ -21,7 +21,7 @@
       #Multimedia:
       jellyfin-media-player #Media Player for Jellyfin
       #spotify-tui
-      spotifyd
+      #spotifyd
 
       #Command-line tools:
       neofetch  #command to display system info in Console
