@@ -8,14 +8,14 @@
   boot.loader = {
     
     grub.enable = false;
-    systemd-boot.enable = false;
+    systemd-boot.enable = true;
 
     efi = {
-      efiSysMountPoint = "/boot/EFI";
+      efiSysMountPoint = "/boot";
       canTouchEfiVariables = true;
     };
     refind = {
-      enable = true;
+      enable = false;
       maxGenerations = 10;
       themes = [
    

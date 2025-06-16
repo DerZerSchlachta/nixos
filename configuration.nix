@@ -31,7 +31,6 @@
       inputs.nix-gaming.nixosModules.platformOptimizations
       ./modules/system/rEFInd.nix
       inputs.spicetify-nix.nixosModules.default
-      ./modules/system/spicetify.nix
     ];
 
 
@@ -108,6 +107,32 @@
       enable = true;
       flake = "/home/johannes/nixos";
     };
+
+    spicetify =
+      let
+        spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+      in
+    {
+      enable = true;
+
+      enabledExtensions = with spicePkgs.extensions; [
+        adblock
+        hidePodcasts
+        shuffle # shuffle+ (special characters are sanitized out of extension names)
+      ];
+      enabledCustomApps = with spicePkgs.apps; [
+        newReleases
+        ncsVisualizer
+      ];
+      enabledSnippets = with spicePkgs.snippets; [
+        rotatingCoverart
+        pointer
+      ];
+
+      theme = spicePkgs.themes.catppuccin;
+      colorScheme = "mocha";
+    };
+
   };
 
 
@@ -130,14 +155,16 @@
     gnugrep
     unzip
     zip
+    unrar
+    mc
     efibootmgr
 
     nil # nix language server
 
     #nix-gaming stuff, doesn't really work
-    #inputs.nix-gaming.packages.${pkgs.system}.wine-tkg
-    #inputs.nix-gaming.packages.${pkgs.system}.winetricks-git
-    #inputs.nix-gaming.packages.${pkgs.system}.wineprefix-preparer
+    inputs.nix-gaming.packages.${pkgs.system}.wine-tkg
+    inputs.nix-gaming.packages.${pkgs.system}.winetricks-git
+    inputs.nix-gaming.packages.${pkgs.system}.wineprefix-preparer
     #inputs.nix-gaming.packages.${pkgs.system}.wine
     #inputs.nix-gaming.packages.${pkgs.system}.vkd3d-proton
 

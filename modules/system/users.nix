@@ -16,7 +16,9 @@
     packages = with pkgs; [ 
       #Communication:
       thunderbird
-      discord 
+      discord
+      telegram-desktop
+      signal-desktop
 
       #Multimedia:
       jellyfin-media-player #Media Player for Jellyfin
@@ -24,7 +26,7 @@
       #spotifyd
 
       #Command-line tools:
-      neofetch  #command to display system info in Console
+      fastfetch  #command to display system info in Console
       cool-retro-term #retro-looking console (not very practical)
       tldr  #helpful commandline tool which explains a given command
       git #git repository managemnet
