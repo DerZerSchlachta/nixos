@@ -3,7 +3,7 @@
 {
   programs.plasma-manager.enable = true;
 
-  programs.plasma-manager.settings = {
+  #programs.plasma-manager.settings = {
     #lookAndFeel = "org.kde.breezedark.desktop";
     #colorscheme = "BreezeDark";
     #icons = "Papirus-Dark";
@@ -14,6 +14,6 @@
 
     #cursorTheme = "Bibata-Modern-Classic";
     #splashScreen = "org.kde.breeze.desktop";
-    wallpaper = /mnt/personal_data/Pictures/Wallpaper Paintings/Disco_Elysium_2.jpg
-  };
+    #wallpaper = /mnt/personal_data/Pictures/Wallpaper Paintings/Disco_Elysium_2.jpg;
+  #};
 }

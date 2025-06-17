@@ -15,5 +15,6 @@
     
     #plasma-manager:
     ./modules/home-manager/plasma-manager/appearance.nix
+    ./modules/home-manager/plasma-manager/plasma.nix
   ];
 }
