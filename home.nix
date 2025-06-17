@@ -12,5 +12,8 @@
     ./modules/home-manager/mpv.nix
     ./modules/home-manager/nushell.nix
     ./modules/home-manager/kdeconnect.nix
+    
+    #plasma-manager:
+    ./modules/home-manager/plasma-manager/appearance.nix
   ];
 }
