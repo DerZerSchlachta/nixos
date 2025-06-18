@@ -27,6 +27,7 @@
       ./modules/system/vpn.nix
       ./modules/system/users.nix
       ./modules/system/displayManager.nix
+      ./modules/system/audio.nix
       inputs.nix-gaming.nixosModules.pipewireLowLatency
       inputs.nix-gaming.nixosModules.platformOptimizations
       ./modules/system/rEFInd.nix
@@ -62,22 +63,7 @@
     
     flatpak.enable = true;  #installing (non-declarative) packages through flatpak / flathub
 
-    pulseaudio.enable = false;
-
-    #Pipewire Audiosystem, which is superior to pulseaudio!
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-
-      lowLatency = {
-        enable = true;
-        # optional:
-        quantum = 64;
-        rate = 48000;
-      };
-    };
+    
 
   };
 
@@ -171,6 +157,8 @@
     lutris  #game launcher, should be able to launch most windows games using wine
     bottles #another game launcher, if lutris doesn't work
     heroic  #epic games launcher for linux
+
+    noisetorch
 
     usbutils  # needed for usb / serial management
     arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
