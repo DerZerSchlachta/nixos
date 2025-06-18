@@ -4,7 +4,7 @@
   users.users.johannes = {
     isNormalUser = true;
     description = "Johannes Bartschies";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "docker" "realtime"];
+    extraGroups = [ "root" "networkmanager" "wheel" "dialout" "docker" "realtime"];
     home = "/home/johannes";
 
     shell = pkgs.nushell;
