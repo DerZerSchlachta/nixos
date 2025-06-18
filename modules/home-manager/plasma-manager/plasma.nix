@@ -1,5 +1,6 @@
+{ config, lib, pkgs, ... }:
 {
-  programs.plasma = {
+  homeManagerModules.plasma = {
     enable = true;
     shortcuts = {
       "ActivityManager"."switch-to-activity-2a4e2cdf-103c-4df2-bbb7-894268292217" = [ ];

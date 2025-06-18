@@ -19,12 +19,12 @@
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
-    plasma-manager.url = "github:nix-community/plasma-manager";
+    #plasma-manager.url = "github:nix-community/plasma-manager";
 
   };
 
 
-  outputs = { self, nixpkgs, home-manager, nix-flakes, refind-nix, nix-gaming, plasma-manager,... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-flakes, refind-nix, nix-gaming, /*plasma-manager,*/... }@inputs:
   {
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -45,6 +45,6 @@
       ];
     };
 
-    homeManagerModules.plasma = plasma-manager.homeManagerModules.plasma-manager;
+    #homeManagerModules.plasma = plasma-manager.homeManagerModules.plasma-manager;
   };
 }

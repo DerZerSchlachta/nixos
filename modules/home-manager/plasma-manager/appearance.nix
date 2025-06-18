@@ -1,7 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs,... }:
 
 {
-  programs.plasma-manager.enable = true;
+  #programs.plasma-manager.enable = true;
 
   #programs.plasma-manager.settings = {
     #lookAndFeel = "org.kde.breezedark.desktop";

@@ -14,7 +14,7 @@
     ./modules/home-manager/kdeconnect.nix
     
     #plasma-manager:
-    ./modules/home-manager/plasma-manager/appearance.nix
-    ./modules/home-manager/plasma-manager/plasma.nix
+    #./modules/home-manager/plasma-manager/appearance.nix
+    #./modules/home-manager/plasma-manager/plasma.nix
   ];
 }

@@ -156,7 +156,7 @@
     unzip
     zip
     unrar
-    mc
+    mc  #don't know how to access that one just yet
     efibootmgr
 
     nil # nix language server
@@ -171,6 +171,8 @@
     lutris  #game launcher, should be able to launch most windows games using wine
     bottles #another game launcher, if lutris doesn't work
     heroic  #epic games launcher for linux
+
+    noisetorch  #noise reduction through a virtual microphone
 
     usbutils  # needed for usb / serial management
     arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
