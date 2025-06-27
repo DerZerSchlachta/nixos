@@ -104,7 +104,7 @@
       enabledExtensions = with spicePkgs.extensions; [
         adblock
         hidePodcasts
-        shuffle # shuffle+ (special characters are sanitized out of extension names)
+        shuffle
       ];
       enabledCustomApps = with spicePkgs.apps; [
         newReleases
@@ -118,6 +118,7 @@
       theme = spicePkgs.themes.catppuccin;
       colorScheme = "mocha";
     };
+    droidcam.enable = true;
 
   };
 
@@ -158,7 +159,6 @@
     bottles #another game launcher, if lutris doesn't work
     heroic  #epic games launcher for linux
 
-    noisetorch
 
     usbutils  # needed for usb / serial management
     arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor

@@ -28,7 +28,8 @@
     [ { device = "/dev/disk/by-uuid/8a7ff726-63bd-4c8b-a895-54ded98c7605"; }
     ];
 
-    #Mounting secondary draves, shared with the windows installation
+    #Mounting secondary drives, shared with the windows installation
+    /*
   fileSystems."/run/media/johannes/Fast Auxillery Storage" =
     { device = "/dev/disk/by-uuid/A29E926B9E9237AD";
       fsType = "ntfs-3g";
@@ -39,6 +40,7 @@
       fsType = "ntfs-3g";
       options = [ "rw" "uid=1000" "gid=100" "nofail" ];
     };
+    */
 
     #Mouting the Unraid Server NFS Shares:
   fileSystems."/mnt/personal_data" =
