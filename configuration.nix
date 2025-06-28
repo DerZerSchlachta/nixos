@@ -32,6 +32,7 @@
       inputs.nix-gaming.nixosModules.platformOptimizations
       ./modules/system/rEFInd.nix
       inputs.spicetify-nix.nixosModules.default
+      ./modules/gaming/rimsort.nix
     ];
 
 
