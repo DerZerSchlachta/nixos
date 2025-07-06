@@ -32,7 +32,7 @@
       inputs.nix-gaming.nixosModules.platformOptimizations
       ./modules/system/rEFInd.nix
       inputs.spicetify-nix.nixosModules.default
-      ./modules/gaming/rimsort.nix
+      #./modules/gaming/rimsort.nix
     ];
 
 
@@ -148,6 +148,8 @@
     efibootmgr
 
     nil # nix language server
+
+    vlc
 
     #nix-gaming stuff, doesn't really work
     inputs.nix-gaming.packages.${pkgs.system}.wine-tkg
