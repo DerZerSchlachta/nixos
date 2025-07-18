@@ -17,16 +17,12 @@
     nix-flakes.url = "github:valenbar/nix-flakes";
     nix-flakes.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-gaming.url = "github:fufexan/nix-gaming";
-
-    refind-nix.url = "github:DerZerSchlachta/refind-nix"; #a nixos compatable version of rEFInd Bootmanager, aka. the nicest looking bootmanager
-
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
   };
 
 
-  outputs = { self, nixpkgs, home-manager, plasma-manager, nix-flakes, refind-nix, nix-gaming,... }@inputs:
+  outputs = { self, nixpkgs, home-manager, plasma-manager, nix-flakes,... }@inputs:
   {
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       specialArgs = {

@@ -22,6 +22,9 @@
 
       #Multimedia:
       jellyfin-media-player #Media Player for Jellyfin
+      jellyfin-rpc
+      jellyfin-tui
+      calibre
       #spotify-tui
       #spotifyd
 

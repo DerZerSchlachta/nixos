@@ -28,11 +28,8 @@
       ./modules/system/users.nix
       ./modules/system/displayManager.nix
       ./modules/system/audio.nix
-      inputs.nix-gaming.nixosModules.pipewireLowLatency
-      inputs.nix-gaming.nixosModules.platformOptimizations
       ./modules/system/rEFInd.nix
       inputs.spicetify-nix.nixosModules.default
-      #./modules/gaming/rimsort.nix
     ];
 
 
@@ -150,13 +147,6 @@
     nil # nix language server
 
     vlc
-
-    #nix-gaming stuff, doesn't really work
-    inputs.nix-gaming.packages.${pkgs.system}.wine-tkg
-    inputs.nix-gaming.packages.${pkgs.system}.winetricks-git
-    inputs.nix-gaming.packages.${pkgs.system}.wineprefix-preparer
-    #inputs.nix-gaming.packages.${pkgs.system}.wine
-    #inputs.nix-gaming.packages.${pkgs.system}.vkd3d-proton
 
     lutris  #game launcher, should be able to launch most windows games using wine
     bottles #another game launcher, if lutris doesn't work
