@@ -1,7 +1,7 @@
 { ... }:
 {
   programs.plasma = {
-    enable = true;
+    enable = false;
 
     hotkeys.commands."launch-konsole" = {
       name = "Launch Konsole";

@@ -1,10 +1,6 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  imports = [
-    inputs.refind-nix.nixosModules.refind
-  ];
-
   boot.loader = {
     
     grub.enable = false;

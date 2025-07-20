@@ -21,9 +21,9 @@
       signal-desktop
 
       #Multimedia:
-      jellyfin-media-player #Media Player for Jellyfin
+      jellyfin-media-player
       jellyfin-rpc
-      jellyfin-tui
+      #jellyfin-tui
       calibre
       #spotify-tui
       #spotifyd
