@@ -31,6 +31,8 @@
       ./modules/system/rEFInd.nix
       ./modules/system/virtualisation.nix
       inputs.spicetify-nix.nixosModules.default
+      inputs.nix-gaming.nixosModules.pipewireLowLatency
+      inputs.nix-gaming.nixosModules.platformOptimizations
     ];
 
 
@@ -61,9 +63,6 @@
     openssh.enable = true; #enabling ssh-connections
     
     flatpak.enable = true;  #installing (non-declarative) packages through flatpak / flathub
-
-    
-
   };
 
 
@@ -144,10 +143,14 @@
     unrar
     mc
     efibootmgr
+    dua
+    dysk
 
     nil # nix language server
 
     vlc
+
+    #libsForQt5.qtstyleplugin-kvantum  #kvantum theme engine
 
     lutris  #game launcher, should be able to launch most windows games using wine
     bottles #another game launcher, if lutris doesn't work
