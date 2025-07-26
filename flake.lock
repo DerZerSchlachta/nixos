@@ -80,11 +80,11 @@
         "togo-src": "togo-src"
       },
       "locked": {
-        "lastModified": 1745626158,
-        "narHash": "sha256-6JH1oiR1KTxa2EY75/GRvN0VElgzhVX4nu3LQnb0NCM=",
+        "lastModified": 1752693871,
+        "narHash": "sha256-qo6ePDt5QA6WbbyqIyzz7/wv28QZDdoHEAreaaH5n34=",
         "owner": "valenbar",
         "repo": "nix-flakes",
-        "rev": "ed178a3e72090c876fd47defafc966f4627bb123",
+        "rev": "982b20aeae057a9787b55268a9bce95f795251b9",
         "type": "github"
       },
       "original": {
@@ -145,17 +145,25 @@
     },
     "nixpkgs_2": {
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1749794982,
         "narHash": "sha256-Kh9K4taXbVuaLC0IL+9HcfvxsSUx8dPB5s5weJcc9pc=",
         "owner": "nixos",
         "repo": "nixpkgs",
         "rev": "ee930f9755f58096ac6e8ca94a1887e0534e2d81",
+=======
+        "lastModified": 1751846083,
+        "narHash": "sha256-MRJJAb7ruXQ6Ys6ITuWw1N0PGpd8uhucKVT1pFqbQuo=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "048597ae8f390af6aedd0ffd08878aaf32f9a210",
+>>>>>>> nice-branch
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "rev": "048597ae8f390af6aedd0ffd08878aaf32f9a210",
         "type": "github"
       }
     },
@@ -191,6 +199,29 @@
         "type": "github"
       }
     },
+    "plasma-manager": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748196248,
+        "narHash": "sha256-1iHjsH6/5UOerJEoZKE+Gx1BgAoge/YcnUsOA4wQ/BU=",
+        "owner": "nix-community",
+        "repo": "plasma-manager",
+        "rev": "b7697abe89967839b273a863a3805345ea54ab56",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "plasma-manager",
+        "type": "github"
+      }
+    },
     "refind-nix": {
       "inputs": {
         "nixpkgs": "nixpkgs_3"
@@ -215,6 +246,7 @@
         "nix-flakes": "nix-flakes",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",
+        "plasma-manager": "plasma-manager",
         "refind-nix": "refind-nix",
         "spicetify-nix": "spicetify-nix"
       }

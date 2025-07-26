@@ -4,7 +4,7 @@
   users.users.johannes = {
     isNormalUser = true;
     description = "Johannes Bartschies";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "docker" ];
+    extraGroups = [ "root" "networkmanager" "wheel" "dialout" "docker" "realtime"];
     home = "/home/johannes";
 
     shell = pkgs.nushell;
@@ -22,6 +22,7 @@
 
       #Multimedia:
       jellyfin-media-player #Media Player for Jellyfin
+      jellyfin-rpc
       #spotify-tui
       #spotifyd
 

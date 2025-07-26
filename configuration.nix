@@ -27,10 +27,12 @@
       ./modules/system/vpn.nix
       ./modules/system/users.nix
       ./modules/system/displayManager.nix
+      ./modules/system/audio.nix
+      ./modules/system/rEFInd.nix
+      ./modules/system/virtualisation.nix
+      inputs.spicetify-nix.nixosModules.default
       inputs.nix-gaming.nixosModules.pipewireLowLatency
       inputs.nix-gaming.nixosModules.platformOptimizations
-      ./modules/system/rEFInd.nix
-      inputs.spicetify-nix.nixosModules.default
     ];
 
 
@@ -61,24 +63,6 @@
     openssh.enable = true; #enabling ssh-connections
     
     flatpak.enable = true;  #installing (non-declarative) packages through flatpak / flathub
-
-    pulseaudio.enable = false;
-
-    #Pipewire Audiosystem, which is superior to pulseaudio!
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-
-      lowLatency = {
-        enable = true;
-        # optional:
-        quantum = 64;
-        rate = 48000;
-      };
-    };
-
   };
 
 
@@ -118,7 +102,7 @@
       enabledExtensions = with spicePkgs.extensions; [
         adblock
         hidePodcasts
-        shuffle # shuffle+ (special characters are sanitized out of extension names)
+        shuffle
       ];
       enabledCustomApps = with spicePkgs.apps; [
         newReleases
@@ -132,11 +116,12 @@
       theme = spicePkgs.themes.catppuccin;
       colorScheme = "mocha";
     };
+    droidcam.enable = true;
 
   };
 
 
-  virtualisation.docker.enable = true; #should enable Docker
+
 
 
 
@@ -158,15 +143,14 @@
     unrar
     mc  #don't know how to access that one just yet
     efibootmgr
+    dua
+    dysk
 
     nil # nix language server
 
-    #nix-gaming stuff, doesn't really work
-    inputs.nix-gaming.packages.${pkgs.system}.wine-tkg
-    inputs.nix-gaming.packages.${pkgs.system}.winetricks-git
-    inputs.nix-gaming.packages.${pkgs.system}.wineprefix-preparer
-    #inputs.nix-gaming.packages.${pkgs.system}.wine
-    #inputs.nix-gaming.packages.${pkgs.system}.vkd3d-proton
+    vlc
+
+    #libsForQt5.qtstyleplugin-kvantum  #kvantum theme engine
 
     lutris  #game launcher, should be able to launch most windows games using wine
     bottles #another game launcher, if lutris doesn't work
@@ -176,13 +160,14 @@
 
     usbutils  # needed for usb / serial management
     arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
-    nixFlakes.packages.x86_64-linux.deej  #Small Programm to read and Apply Inputs from arduino-audio controllers, based on the "deej" system
+    #nixFlakes.packages.x86_64-linux.deej  #Small Programm to read and Apply Inputs from arduino-audio controllers, based on the "deej" system
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     fira-code
   ];
+
 
 
 

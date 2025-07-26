@@ -3,14 +3,21 @@
 
   inputs = {
     #nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/048597ae8f390af6aedd0ffd08878aaf32f9a210";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     nix-flakes.url = "github:valenbar/nix-flakes";
+
     nix-flakes.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
@@ -23,8 +30,7 @@
 
   };
 
-
-  outputs = { self, nixpkgs, home-manager, nix-flakes, refind-nix, nix-gaming, /*plasma-manager,*/... }@inputs:
+  outputs = { self, nixpkgs, home-manager, plasma-manager, nix-flakes, refind-nix, nix-gaming,... }@inputs:
   {
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -41,6 +47,9 @@
           home-manager.useUserPackages = true;
           home-manager.users.johannes = ./home.nix;
           home-manager.backupFileExtension = "backup";
+          home-manager.sharedModules = [ 
+          plasma-manager.homeManagerModules.plasma-manager
+          ];
         }
       ];
     };
