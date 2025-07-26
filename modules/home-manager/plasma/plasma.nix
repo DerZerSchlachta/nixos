@@ -2,7 +2,7 @@
 {
 
   imports = [
-    ./window_rules.nix
+    ./window-rules.nix
     ./workspace.nix
   ];
 
