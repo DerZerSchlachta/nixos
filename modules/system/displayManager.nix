@@ -3,11 +3,12 @@
 
 {
   services.xserver.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "sddm-astronaut-theme";
+    #theme = "sddm-astronaut-theme";
     extraPackages = with pkgs; [
       kdePackages.qtsvg
       kdePackages.qtmultimedia
@@ -15,7 +16,6 @@
     ];
   };
 
-  services.desktopManager.plasma6.enable = true;
 
   services.xserver.xkb = {
     layout = "de";
