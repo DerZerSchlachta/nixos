@@ -3,7 +3,7 @@
 
   inputs = {
     #nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/048597ae8f390af6aedd0ffd08878aaf32f9a210";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -15,6 +15,7 @@
     };
 
     nix-flakes.url = "github:valenbar/nix-flakes";
+
     nix-flakes.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
@@ -22,7 +23,6 @@
     refind-nix.url = "github:DerZerSchlachta/refind-nix"; #a nixos compatable version of rEFInd Bootmanager, aka. the nicest looking bootmanager
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-
   };
 
 
@@ -44,7 +44,7 @@
           home-manager.users.johannes = ./home.nix;
           home-manager.backupFileExtension = "backup";
           home-manager.sharedModules = [ 
-            plasma-manager.homeManagerModules.plasma-manager 
+          plasma-manager.homeManagerModules.plasma-manager
           ];
         }
       ];

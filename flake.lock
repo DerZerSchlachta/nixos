@@ -80,11 +80,11 @@
         "togo-src": "togo-src"
       },
       "locked": {
-        "lastModified": 1745626158,
-        "narHash": "sha256-6JH1oiR1KTxa2EY75/GRvN0VElgzhVX4nu3LQnb0NCM=",
+        "lastModified": 1752693871,
+        "narHash": "sha256-qo6ePDt5QA6WbbyqIyzz7/wv28QZDdoHEAreaaH5n34=",
         "owner": "valenbar",
         "repo": "nix-flakes",
-        "rev": "ed178a3e72090c876fd47defafc966f4627bb123",
+        "rev": "982b20aeae057a9787b55268a9bce95f795251b9",
         "type": "github"
       },
       "original": {
@@ -145,17 +145,17 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1749285348,
-        "narHash": "sha256-frdhQvPbmDYaScPFiCnfdh3B/Vh81Uuoo0w5TkWmmjU=",
+        "lastModified": 1751846083,
+        "narHash": "sha256-MRJJAb7ruXQ6Ys6ITuWw1N0PGpd8uhucKVT1pFqbQuo=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+        "rev": "048597ae8f390af6aedd0ffd08878aaf32f9a210",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "rev": "048597ae8f390af6aedd0ffd08878aaf32f9a210",
         "type": "github"
       }
     },

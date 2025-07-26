@@ -159,7 +159,7 @@
 
     usbutils  # needed for usb / serial management
     arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
-    nixFlakes.packages.x86_64-linux.deej  #Small Programm to read and Apply Inputs from arduino-audio controllers, based on the "deej" system
+    #nixFlakes.packages.x86_64-linux.deej  #Small Programm to read and Apply Inputs from arduino-audio controllers, based on the "deej" system
   ];
 
   fonts.packages = with pkgs; [
