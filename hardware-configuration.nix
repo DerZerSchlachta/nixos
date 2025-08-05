@@ -53,11 +53,11 @@
         #"nofail"
       #];
     #};
-  fileSystems."/mnt/backups" =
-    { device = "192.168.0.202:/mnt/user/Backups-Johannes";
+  fileSystems."/mnt/Johannes" =
+    { device = "192.168.0.202:/mnt/user/Johannes";
       fsType = "nfs";
       options = [
-        #"x-systemd.automount"
+        "x-systemd.automount"
         "x-systemd.requires=network-online.target"
         "x-systemd.after=network-online.target"
         "nofail"

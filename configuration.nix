@@ -21,6 +21,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
       ./modules/system/nvidia.nix
       ./modules/system/bluetooth.nix
       ./modules/system/networking.nix
@@ -30,9 +31,12 @@
       ./modules/system/audio.nix
       ./modules/system/rEFInd.nix
       ./modules/system/virtualisation.nix
+
       inputs.spicetify-nix.nixosModules.default
       inputs.nix-gaming.nixosModules.pipewireLowLatency
       inputs.nix-gaming.nixosModules.platformOptimizations
+
+      "${inputs.nixpkgs}/nixos/modules/services/hardware/sane_extra_backends/brscan4.nix" #Proprietary Drivers Package, not included by default 
     ];
 
 
@@ -56,13 +60,26 @@
   };
 
   services = {
-
-    printing.enable = true; #printer support
-
     tailscale.enable = true;  #tailscale support
     openssh.enable = true; #enabling ssh-connections
     
     flatpak.enable = true;  #installing (non-declarative) packages through flatpak / flathub
+    printing.enable = true;
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+
+  };
+  hardware.sane = {
+    enable = true; # enables support for SANE scanners
+    brscan4 = {
+        enable = true;
+        netDevices = {
+          DruckerZuHause = { model = "MFC-J470DW"; ip = "192.168.188.28"; };
+        };
+    };
   };
 
 
@@ -121,14 +138,8 @@
   };
 
 
-
-
-
-
   # List packages installed in system profile:
   environment.systemPackages = with pkgs; [
-
-
 
     #kde-plasma related:
     
@@ -150,6 +161,8 @@
     #(sddm-astronaut.override {
     #  embeddedTheme = "astronaut";
     #})
+
+    simple-scan  # GUI scanning tool
 
     librewolf #Privacy-focused FireFox Fork -> better Browser, should be the system-standart for every user
 
