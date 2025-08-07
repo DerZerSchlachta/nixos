@@ -8,79 +8,36 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci_renesas" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/f147c7b3-5ad1-420e-86af-a909ed28e61e";
+    { device = "/dev/disk/by-uuid/1ad4cdfc-6399-4be2-a38a-f87aeb59aabe";
       fsType = "ext4";
     };
 
+  boot.initrd.luks.devices."luks-a70b10e1-f6ff-4799-a71a-93a31cf9513e".device = "/dev/disk/by-uuid/a70b10e1-f6ff-4799-a71a-93a31cf9513e";
+
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/18DB-9B01";
+    { device = "/dev/disk/by-uuid/628C-2A8E";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/8a7ff726-63bd-4c8b-a895-54ded98c7605"; }
+    [ { device = "/dev/disk/by-uuid/a6caa1ed-c793-4c00-aace-87fcec37a7d7"; }
     ];
-
-    #Mounting secondary drives, shared with the windows installation
-    /*
-  fileSystems."/run/media/johannes/Fast Auxillery Storage" =
-    { device = "/dev/disk/by-uuid/A29E926B9E9237AD";
-      fsType = "ntfs-3g";
-      options = [ "rw" "uid=1000" "gid=100" "nofail" ];
-    };
-  fileSystems."/run/media/johannes/Windows11_System_Disk" =
-    { device = "/dev/disk/by-uuid/80A8B4C6A8B4BBCA";
-      fsType = "ntfs-3g";
-      options = [ "rw" "uid=1000" "gid=100" "nofail" ];
-    };
-    */
-
-    #Mouting the Unraid Server NFS Shares:
-  #fileSystems."/mnt/personal_data" =
-    #{ device = "192.168.0.202:/mnt/user/personal_data_johannes";
-      #fsType = "nfs";
-      #options = [
-        #"x-systemd.automount"
-        #"x-systemd.requires=network-online.target"
-        #"x-systemd.after=network-online.target"
-        #"nofail"
-      #];
-    #};
-  fileSystems."/mnt/Johannes" =
-    { device = "192.168.0.202:/mnt/user/Johannes";
-      fsType = "nfs";
-      options = [
-        "x-systemd.automount"
-        "x-systemd.requires=network-online.target"
-        "x-systemd.after=network-online.target"
-        "nofail"
-      ];
-    };
-  fileSystems."/mnt/media" =
-    { device = "192.168.0.202:/mnt/user/Media";
-      fsType = "nfs";
-      options = [
-        #"x-systemd.automount"
-        "x-systemd.requires=network-online.target"
-        "x-systemd.after=network-online.target"
-        "nofail"
-      ];
-    };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp7s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp2s0f0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp5s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp3s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

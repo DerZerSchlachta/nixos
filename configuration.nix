@@ -22,15 +22,15 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      ./modules/system/nvidia.nix
+      #./modules/system/nvidia.nix
       ./modules/system/bluetooth.nix
       ./modules/system/networking.nix
       ./modules/system/vpn.nix
       ./modules/system/users.nix
       ./modules/system/displayManager.nix
       ./modules/system/audio.nix
-      ./modules/system/rEFInd.nix
-      ./modules/system/virtualisation.nix
+      #./modules/system/rEFInd.nix
+      #./modules/system/virtualisation.nix
 
       inputs.spicetify-nix.nixosModules.default
       inputs.nix-gaming.nixosModules.pipewireLowLatency
@@ -39,6 +39,7 @@
       "${inputs.nixpkgs}/nixos/modules/services/hardware/sane_extra_backends/brscan4.nix" #Proprietary Drivers Package, not included by default 
     ];
 
+  boot.loader.systemd-boot.enable = true;
 
 
   # Set your time zone.
