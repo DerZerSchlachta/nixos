@@ -71,6 +71,8 @@
       openFirewall = true;
     };
 
+    udisks2.enable = true; 
+
   };
   hardware.sane = {
     enable = true; # enables support for SANE scanners
@@ -181,6 +183,7 @@
     nil # nix language server
 
     vlc
+    calibre
 
     #libsForQt5.qtstyleplugin-kvantum  #kvantum theme engine
 
