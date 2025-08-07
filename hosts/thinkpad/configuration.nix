@@ -22,9 +22,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      #../../modules/system/nvidia.nix
       ../../modules/system/bluetooth.nix
-      ../../modules/system/networking.nix
+      ./modules/system/networking.nix
       ../../modules/system/vpn.nix
       ../../modules/system/users.nix
       ../../modules/system/displayManager.nix
@@ -181,7 +180,7 @@
     dua
     dysk
 
-    nixfmt
+    nixfmt-rfc-style
     nil # nix language server
 
     vlc
