@@ -112,6 +112,22 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1754564048,
+        "narHash": "sha256-dz303vGuzWjzOPOaYkS9xSW+B93PSAJxvBd6CambXVA=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "26ed7a0d4b8741fe1ef1ee6fa64453ca056ce113",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1749213349,
@@ -145,17 +161,17 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1751846083,
-        "narHash": "sha256-MRJJAb7ruXQ6Ys6ITuWw1N0PGpd8uhucKVT1pFqbQuo=",
+        "lastModified": 1754711617,
+        "narHash": "sha256-WrZ280bT6NzNbBo+CKeJA/NW1rhvN/RUPZczqCpu2mI=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "048597ae8f390af6aedd0ffd08878aaf32f9a210",
+        "rev": "00b574b1ba8a352f0601c4dde4faff4b534ebb1e",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
-        "rev": "048597ae8f390af6aedd0ffd08878aaf32f9a210",
         "type": "github"
       }
     },
@@ -237,6 +253,7 @@
         "home-manager": "home-manager",
         "nix-flakes": "nix-flakes",
         "nix-gaming": "nix-gaming",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "plasma-manager": "plasma-manager",
         "refind-nix": "refind-nix",

@@ -2,8 +2,8 @@
   description = "A flake";
 
   inputs = {
-    #nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/048597ae8f390af6aedd0ffd08878aaf32f9a210";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    #nixpkgs.url = "github:nixos/nixpkgs/048597ae8f390af6aedd0ffd08878aaf32f9a210";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -26,11 +26,12 @@
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
-    #plasma-manager.url = "github:nix-community/plasma-manager";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    #plasma-manager.url = "github:nix-community/plasma-manager";
   };
 
-  outputs = { self, nixpkgs, home-manager, plasma-manager, nix-flakes, refind-nix, nix-gaming,... }@inputs:
+  outputs = { self, nixpkgs, home-manager, plasma-manager, nix-flakes, refind-nix, nix-gaming, nixos-hardware,... }@inputs:
   {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem rec {
@@ -63,7 +64,10 @@
 
         system = "x86_64-linux";
         modules = [
+
           ./hosts/thinkpad/configuration.nix
+          nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen2  #for resolving hardware quirks, like missing wireless driver support
+
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
