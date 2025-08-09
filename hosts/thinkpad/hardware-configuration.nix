@@ -23,11 +23,10 @@
     "sd_mod"
     "rtsx_pci_sdmmc"
   ];
-  
+
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/1ad4cdfc-6399-4be2-a38a-f87aeb59aabe";

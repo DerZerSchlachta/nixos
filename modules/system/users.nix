@@ -4,16 +4,25 @@
   users.users.johannes = {
     isNormalUser = true;
     description = "Johannes Bartschies";
-    extraGroups = [ "root" "networkmanager" "wheel" "dialout" "docker" "realtime" "scanner" "lp"] ;
+    extraGroups = [
+      "root"
+      "networkmanager"
+      "wheel"
+      "dialout"
+      "docker"
+      "realtime"
+      "scanner"
+      "lp"
+    ];
     home = "/home/johannes";
 
     shell = pkgs.nushell;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHZTXGgU26qfBpAfXsdTLwBaTmYfEvRbU6P9jBmTDk2/ administrator@WIN-OLCT0S163I8"
     ];
-    
+
     #All Programs / Tools for this User:
-    packages = with pkgs; [ 
+    packages = with pkgs; [
       #Communication:
       thunderbird
       discord
@@ -21,21 +30,21 @@
       signal-desktop
 
       #Multimedia:
-      jellyfin-media-player #Media Player for Jellyfin
+      jellyfin-media-player # Media Player for Jellyfin
       jellyfin-rpc
       #spotify-tui
       #spotifyd
 
       #Command-line tools:
-      fastfetch  #command to display system info in Console
-      cool-retro-term #retro-looking console (not very practical)
-      tldr  #helpful commandline tool which explains a given command
-      git #git repository managemnet
-      wget  #downloader
-      freerdp #Remote Desktop Client for the Console
+      fastfetch # command to display system info in Console
+      cool-retro-term # retro-looking console (not very practical)
+      tldr # helpful commandline tool which explains a given command
+      git # git repository managemnet
+      wget # downloader
+      freerdp # Remote Desktop Client for the Console
 
       #Productivity:
-      vscode.fhs  #Visual Studio Code
+      vscode.fhs # Visual Studio Code
       libreoffice
       nextcloud-client
 
@@ -45,11 +54,11 @@
       kdePackages.kdepim-addons
 
       #Creativity:
-      inkscape  #Opensource SVG creator
-      gimp3   #Opensource Photo editor
+      inkscape # Opensource SVG creator
+      gimp3 # Opensource Photo editor
 
       #Gaming:
-      mangohud  #displaying performance stats through an ingame-overlay
+      mangohud # displaying performance stats through an ingame-overlay
     ];
   };
 

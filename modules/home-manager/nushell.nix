@@ -2,8 +2,7 @@
 {
   programs.nushell = {
     enable = true;
-    extraConfig = 
-    ''
+    extraConfig = ''
       # remove banner
       $env.config.show_banner = false
 

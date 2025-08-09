@@ -1,4 +1,4 @@
-{ ...}:
+{ ... }:
 {
   # Enable KDE Connect
   services.kdeconnect = {

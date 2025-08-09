@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -6,7 +12,7 @@
   ];
 
   boot.loader = {
-    
+
     grub.enable = false;
     systemd-boot.enable = true;
 
@@ -18,8 +24,8 @@
       enable = false;
       maxGenerations = 10;
       themes = [
-   
-        ];
+
+      ];
     };
   };
 }

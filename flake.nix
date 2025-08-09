@@ -22,7 +22,7 @@
 
     nix-gaming.url = "github:fufexan/nix-gaming";
 
-    refind-nix.url = "github:DerZerSchlachta/refind-nix"; #a nixos compatible version of rEFInd Bootmanager, aka. the nicest looking bootmanager
+    refind-nix.url = "github:DerZerSchlachta/refind-nix"; # a nixos compatible version of rEFInd Bootmanager, aka. the nicest looking bootmanager
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
@@ -31,57 +31,80 @@
     #plasma-manager.url = "github:nix-community/plasma-manager";
   };
 
-  outputs = { self, nixpkgs, home-manager, plasma-manager, nix-flakes, refind-nix, nix-gaming, nixos-hardware,... }@inputs:
-  {
-    nixosConfigurations = {
-      desktop = 
-        nixpkgs.lib.nixosSystem rec {
-        specialArgs = {
-        inherit inputs;
-        nixFlakes = inputs.nix-flakes;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      plasma-manager,
+      nix-flakes,
+      refind-nix,
+      nix-gaming,
+      nixos-hardware,
+      ...
+    }@inputs:
+    let
+      overlays = [
+        (final: prev: {
+          rimsort = prev.rimsort.overrideAttrs (old: {
+            installPhase = old.installPhase + ''
+              mkdir -p $out/share/applications
+              cp ${builtins.head old.desktopItems}/share/applications/*.desktop $out/share/applications/
+            '';
+          });
+        })
+      ];
+    in
+    {
+      nixosConfigurations = {
+        desktop = nixpkgs.lib.nixosSystem rec {
+          specialArgs = {
+            inherit inputs;
+            nixFlakes = inputs.nix-flakes;
+          };
+
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/desktop/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.johannes = ./hosts/desktop/home.nix;
+              home-manager.backupFileExtension = "backup";
+              home-manager.sharedModules = [
+                plasma-manager.homeManagerModules.plasma-manager
+              ];
+            }
+            {nixpkgs.overlays = overlays;}
+          ];
         };
 
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/desktop/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.johannes = ./hosts/desktop/home.nix;
-            home-manager.backupFileExtension = "backup";
-            home-manager.sharedModules = [ 
-            plasma-manager.homeManagerModules.plasma-manager
-            ];
-          }
-        ];
-      };
+        thinkpad = nixpkgs.lib.nixosSystem rec {
+          specialArgs = {
+            inherit inputs;
+            nixFlakes = inputs.nix-flakes;
+          };
 
-      thinkpad = nixpkgs.lib.nixosSystem rec {
-        specialArgs = {
-        inherit inputs;
-        nixFlakes = inputs.nix-flakes;
+          system = "x86_64-linux";
+          modules = [
+
+            ./hosts/thinkpad/configuration.nix
+            nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen2 # for resolving hardware quirks, like missing wireless driver support
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.johannes = ./hosts/thinkpad/home.nix;
+              home-manager.backupFileExtension = "backup";
+              home-manager.sharedModules = [
+                plasma-manager.homeManagerModules.plasma-manager
+              ];
+            }
+          ];
         };
-
-        system = "x86_64-linux";
-        modules = [
-
-          ./hosts/thinkpad/configuration.nix
-          nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen2  #for resolving hardware quirks, like missing wireless driver support
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.johannes = ./hosts/thinkpad/home.nix;
-            home-manager.backupFileExtension = "backup";
-            home-manager.sharedModules = [ 
-            plasma-manager.homeManagerModules.plasma-manager
-            ];
-          }
-        ];
       };
+      #homeManagerModules.plasma = plasma-manager.homeManagerModules.plasma-manager;
     };
-    #homeManagerModules.plasma = plasma-manager.homeManagerModules.plasma-manager;
-  };
 }

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   homeManagerModules.plasma = {
     enable = true;
@@ -9,30 +14,50 @@
       "kaccess"."Toggle Screen Reader On and Off" = "Meta+Alt+S";
       "kcm_touchpad"."Disable Touchpad" = "Touchpad Off";
       "kcm_touchpad"."Enable Touchpad" = "Touchpad On";
-      "kcm_touchpad"."Toggle Touchpad" = ["Touchpad Toggle" "Meta+Ctrl+Touchpad Toggle" "Meta+Ctrl+Zenkaku Hankaku,Touchpad Toggle" "Touchpad Toggle" "Meta+Ctrl+Touchpad Toggle" "Meta+Ctrl+Zenkaku Hankaku,Toggle Touchpad"];
+      "kcm_touchpad"."Toggle Touchpad" = [
+        "Touchpad Toggle"
+        "Meta+Ctrl+Touchpad Toggle"
+        "Meta+Ctrl+Zenkaku Hankaku,Touchpad Toggle"
+        "Touchpad Toggle"
+        "Meta+Ctrl+Touchpad Toggle"
+        "Meta+Ctrl+Zenkaku Hankaku,Toggle Touchpad"
+      ];
       "kmix"."decrease_microphone_volume" = "Microphone Volume Down";
       "kmix"."decrease_volume" = "Volume Down";
       "kmix"."decrease_volume_small" = "Shift+Volume Down";
       "kmix"."increase_microphone_volume" = "Microphone Volume Up";
       "kmix"."increase_volume" = "Volume Up";
       "kmix"."increase_volume_small" = "Shift+Volume Up";
-      "kmix"."mic_mute" = ["Microphone Mute" "Meta+Volume Mute,Microphone Mute" "Meta+Volume Mute,Mikrofon stummschalten"];
+      "kmix"."mic_mute" = [
+        "Microphone Mute"
+        "Meta+Volume Mute,Microphone Mute"
+        "Meta+Volume Mute,Mikrofon stummschalten"
+      ];
       "kmix"."mute" = "Volume Mute";
       "ksmserver"."Halt Without Confirmation" = "none,,Ohne Rückfrage herunterfahren";
-      "ksmserver"."Lock Session" = ["Meta+L" "Screensaver,Meta+L" "Screensaver,Sitzung sperren"];
+      "ksmserver"."Lock Session" = [
+        "Meta+L"
+        "Screensaver,Meta+L"
+        "Screensaver,Sitzung sperren"
+      ];
       "ksmserver"."Log Out" = "Ctrl+Alt+Del";
       "ksmserver"."Log Out Without Confirmation" = "none,,Ohne Rückfrage abmelden";
       "ksmserver"."LogOut" = "none,,Abmelden";
       "ksmserver"."Reboot" = "none,,Neu starten";
       "ksmserver"."Reboot Without Confirmation" = "none,,Ohne Rückfrage neu starten";
       "ksmserver"."Shut Down" = "none,,Herunterfahren";
-      "kwin"."Activate Window Demanding Attention" = "Meta+Ctrl+A,Meta+Ctrl+A,Fenster aktivieren\\, das Aufmerksamkeit erfordert";
+      "kwin"."Activate Window Demanding Attention" =
+        "Meta+Ctrl+A,Meta+Ctrl+A,Fenster aktivieren\\, das Aufmerksamkeit erfordert";
       "kwin"."Cycle Overview" = [ ];
       "kwin"."Cycle Overview Opposite" = [ ];
       "kwin"."Decrease Opacity" = "none,,Die Deckkraft des aktiven Fensters um 5 % verringern";
       "kwin"."Edit Tiles" = "Meta+T";
       "kwin"."Expose" = "Ctrl+F9";
-      "kwin"."ExposeAll" = ["Ctrl+F10" "Launch (C),Ctrl+F10" "Launch (C),Fenster aller Arbeitsflächen anzeigen"];
+      "kwin"."ExposeAll" = [
+        "Ctrl+F10"
+        "Launch (C),Ctrl+F10"
+        "Launch (C),Fenster aller Arbeitsflächen anzeigen"
+      ];
       "kwin"."ExposeClass" = "Ctrl+F7";
       "kwin"."ExposeClassCurrentDesktop" = [ ];
       "kwin"."Grid View" = "Meta+G";
@@ -98,11 +123,14 @@
       "kwin"."Walk Through Windows" = "Alt+Tab";
       "kwin"."Walk Through Windows (Reverse)" = "Alt+Shift+Tab";
       "kwin"."Walk Through Windows Alternative" = "none,,Alternatives Wechseln zwischen Fenstern";
-      "kwin"."Walk Through Windows Alternative (Reverse)" = "none,,Alternatives Wechseln zwischen Fenstern (Gegenrichtung)";
+      "kwin"."Walk Through Windows Alternative (Reverse)" =
+        "none,,Alternatives Wechseln zwischen Fenstern (Gegenrichtung)";
       "kwin"."Walk Through Windows of Current Application" = "Alt+`";
       "kwin"."Walk Through Windows of Current Application (Reverse)" = "Alt+~";
-      "kwin"."Walk Through Windows of Current Application Alternative" = "none,,Alternatives Wechseln zwischen Fenstern der aktuellen Anwendung";
-      "kwin"."Walk Through Windows of Current Application Alternative (Reverse)" = "none,,Alternatives Wechseln zwischen Fenstern der aktuellen Anwendung (Gegenrichtung)";
+      "kwin"."Walk Through Windows of Current Application Alternative" =
+        "none,,Alternatives Wechseln zwischen Fenstern der aktuellen Anwendung";
+      "kwin"."Walk Through Windows of Current Application Alternative (Reverse)" =
+        "none,,Alternatives Wechseln zwischen Fenstern der aktuellen Anwendung (Gegenrichtung)";
       "kwin"."Window Above Other Windows" = "none,,Fenster im Vordergrund halten";
       "kwin"."Window Below Other Windows" = "none,,Fenster im Hintergrund halten";
       "kwin"."Window Close" = "Alt+F4";
@@ -137,7 +165,8 @@
       "kwin"."Window Pack Up" = "none,,Fenster nach oben verschieben";
       "kwin"."Window Quick Tile Bottom" = "Meta+Down";
       "kwin"."Window Quick Tile Bottom Left" = "none,,Fenster am linken unteren Bildschirmrand anordnen";
-      "kwin"."Window Quick Tile Bottom Right" = "none,,Fenster am rechten unteren Bildschirmrand anordnen";
+      "kwin"."Window Quick Tile Bottom Right" =
+        "none,,Fenster am rechten unteren Bildschirmrand anordnen";
       "kwin"."Window Quick Tile Left" = "Meta+Left";
       "kwin"."Window Quick Tile Right" = "Meta+Right";
       "kwin"."Window Quick Tile Top" = "Meta+Up";
@@ -182,7 +211,11 @@
       "kwin"."Window to Screen 7" = "none,,Fenster auf Bildschirm 7 verschieben";
       "kwin"."disableInputCapture" = "Meta+Shift+Esc";
       "kwin"."view_actual_size" = "Meta+0";
-      "kwin"."view_zoom_in" = ["Meta++" "Meta+=,Meta++" "Meta+=,Vergrößern"];
+      "kwin"."view_zoom_in" = [
+        "Meta++"
+        "Meta+=,Meta++"
+        "Meta+=,Vergrößern"
+      ];
       "kwin"."view_zoom_out" = "Meta+-";
       "mediacontrol"."mediavolumedown" = "none,,Medienwiedergabe leiser";
       "mediacontrol"."mediavolumeup" = "none,,Medienwiedergabe lauter";
@@ -204,8 +237,16 @@
       "org_kde_powerdevil"."Sleep" = "Sleep";
       "org_kde_powerdevil"."Toggle Keyboard Backlight" = "Keyboard Light On/Off";
       "org_kde_powerdevil"."Turn Off Screen" = [ ];
-      "org_kde_powerdevil"."powerProfile" = ["Battery" "Meta+B,Battery" "Meta+B,Energieprofil wechseln"];
-      "plasmashell"."activate application launcher" = ["Meta" "Alt+F1,Meta" "Alt+F1,Anwendungsstarter aktivieren"];
+      "org_kde_powerdevil"."powerProfile" = [
+        "Battery"
+        "Meta+B,Battery"
+        "Meta+B,Energieprofil wechseln"
+      ];
+      "plasmashell"."activate application launcher" = [
+        "Meta"
+        "Alt+F1,Meta"
+        "Alt+F1,Anwendungsstarter aktivieren"
+      ];
       "plasmashell"."activate task manager entry 1" = "Meta+1";
       "plasmashell"."activate task manager entry 10" = "none,,Fensterleisteneintrag 10 aktivieren";
       "plasmashell"."activate task manager entry 2" = "Meta+2";
@@ -223,7 +264,8 @@
       "plasmashell"."cyclePrevAction" = "none,,Vorheriges Element im Verlauf";
       "plasmashell"."manage activities" = "Meta+Q";
       "plasmashell"."next activity" = "Meta+A,none,Zwischen Aktivitäten wechseln";
-      "plasmashell"."previous activity" = "Meta+Shift+A,none,Zwischen Aktivitäten wechseln (Gegenrichtung)";
+      "plasmashell"."previous activity" =
+        "Meta+Shift+A,none,Zwischen Aktivitäten wechseln (Gegenrichtung)";
       "plasmashell"."repeat_action" = "none,,Aktionen der aktuellen Zwischenablage manuell aufrufen";
       "plasmashell"."show dashboard" = "Ctrl+F12";
       "plasmashell"."show-barcode" = "none,,Strichcode anzeigen …";
@@ -235,7 +277,8 @@
     };
     configFile = {
       "baloofilerc"."General"."dbVersion" = 2;
-      "baloofilerc"."General"."exclude filters" = "*~,*.part,*.o,*.la,*.lo,*.loT,*.moc,moc_*.cpp,qrc_*.cpp,ui_*.h,cmake_install.cmake,CMakeCache.txt,CTestTestfile.cmake,libtool,config.status,confdefs.h,autom4te,conftest,confstat,Makefile.am,*.gcode,.ninja_deps,.ninja_log,build.ninja,*.csproj,*.m4,*.rej,*.gmo,*.pc,*.omf,*.aux,*.tmp,*.po,*.vm*,*.nvram,*.rcore,*.swp,*.swap,lzo,litmain.sh,*.orig,.histfile.*,.xsession-errors*,*.map,*.so,*.a,*.db,*.qrc,*.ini,*.init,*.img,*.vdi,*.vbox*,vbox.log,*.qcow2,*.vmdk,*.vhd,*.vhdx,*.sql,*.sql.gz,*.ytdl,*.tfstate*,*.class,*.pyc,*.pyo,*.elc,*.qmlc,*.jsc,*.fastq,*.fq,*.gb,*.fasta,*.fna,*.gbff,*.faa,po,CVS,.svn,.git,_darcs,.bzr,.hg,CMakeFiles,CMakeTmp,CMakeTmpQmake,.moc,.obj,.pch,.uic,.npm,.yarn,.yarn-cache,__pycache__,node_modules,node_packages,nbproject,.terraform,.venv,venv,core-dumps,lost+found";
+      "baloofilerc"."General"."exclude filters" =
+        "*~,*.part,*.o,*.la,*.lo,*.loT,*.moc,moc_*.cpp,qrc_*.cpp,ui_*.h,cmake_install.cmake,CMakeCache.txt,CTestTestfile.cmake,libtool,config.status,confdefs.h,autom4te,conftest,confstat,Makefile.am,*.gcode,.ninja_deps,.ninja_log,build.ninja,*.csproj,*.m4,*.rej,*.gmo,*.pc,*.omf,*.aux,*.tmp,*.po,*.vm*,*.nvram,*.rcore,*.swp,*.swap,lzo,litmain.sh,*.orig,.histfile.*,.xsession-errors*,*.map,*.so,*.a,*.db,*.qrc,*.ini,*.init,*.img,*.vdi,*.vbox*,vbox.log,*.qcow2,*.vmdk,*.vhd,*.vhdx,*.sql,*.sql.gz,*.ytdl,*.tfstate*,*.class,*.pyc,*.pyo,*.elc,*.qmlc,*.jsc,*.fastq,*.fq,*.gb,*.fasta,*.fna,*.gbff,*.faa,po,CVS,.svn,.git,_darcs,.bzr,.hg,CMakeFiles,CMakeTmp,CMakeTmpQmake,.moc,.obj,.pch,.uic,.npm,.yarn,.yarn-cache,__pycache__,node_modules,node_packages,nbproject,.terraform,.venv,venv,core-dumps,lost+found";
       "baloofilerc"."General"."exclude filters version" = 9;
       "dolphinrc"."ExtractDialog"."2048x1152 screen: Height" = 576;
       "dolphinrc"."ExtractDialog"."2048x1152 screen: Width" = 1320;
@@ -250,7 +293,8 @@
       "dolphinrc"."KFileDialog Settings"."Places Icons Auto-resize" = false;
       "dolphinrc"."KFileDialog Settings"."Places Icons Static Size" = 22;
       "dolphinrc"."Notification Messages"."warnAboutRisksBeforeActingAsAdmin" = false;
-      "dolphinrc"."PreviewSettings"."Plugins" = "appimagethumbnail,audiothumbnail,blenderthumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mobithumbnail,opendocumentthumbnail,gsthumbnail,rawthumbnail,svgthumbnail,ffmpegthumbs";
+      "dolphinrc"."PreviewSettings"."Plugins" =
+        "appimagethumbnail,audiothumbnail,blenderthumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mobithumbnail,opendocumentthumbnail,gsthumbnail,rawthumbnail,svgthumbnail,ffmpegthumbs";
       "kactivitymanagerdrc"."activities"."2a4e2cdf-103c-4df2-bbb7-894268292217" = "Default";
       "kactivitymanagerdrc"."main"."currentActivity" = "2a4e2cdf-103c-4df2-bbb7-894268292217";
       "katerc"."General"."Days Meta Infos" = 30;
@@ -303,7 +347,8 @@
       "kded5rc"."Module-browserintegrationreminder"."autoload" = false;
       "kded5rc"."Module-device_automounter"."autoload" = false;
       "kdeglobals"."DirSelect Dialog"."DirSelectDialog Size" = "1024,576";
-      "kdeglobals"."DirSelect Dialog"."Splitter State" = "\x00\x00\x00\xff\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x8c\x00\x00\x02\xa8\x00\xff\xff\xff\xff\x01\x00\x00\x00\x01\x00";
+      "kdeglobals"."DirSelect Dialog"."Splitter State" =
+        "\x00\x00\x00\xff\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x8c\x00\x00\x02\xa8\x00\xff\xff\xff\xff\x01\x00\x00\x00\x01\x00";
       "kdeglobals"."General"."AccentColor" = "61,174,233";
       "kdeglobals"."General"."LastUsedCustomAccentColor" = "61,174,233";
       "kdeglobals"."Icons"."Theme" = "Win11-blue-dark";
@@ -327,7 +372,8 @@
       "kdeglobals"."KFileDialog Settings"."Speedbar Width" = 140;
       "kdeglobals"."KFileDialog Settings"."View Style" = "DetailTree";
       "kdeglobals"."KScreen"."ScaleFactor" = 1.125;
-      "kdeglobals"."KScreen"."ScreenScaleFactors" = "DP-0=1.125;DP-1=1.125;DP-2=1.125;DP-3=1.125;HDMI-0=1.125;HDMI-1=1.125;HDMI-2=1.125;DP-4=1.125;DP-5=1.125;";
+      "kdeglobals"."KScreen"."ScreenScaleFactors" =
+        "DP-0=1.125;DP-1=1.125;DP-2=1.125;DP-3=1.125;HDMI-0=1.125;HDMI-1=1.125;HDMI-2=1.125;DP-4=1.125;DP-5=1.125;";
       "kdeglobals"."KShortcutsDialog Settings"."Dialog Size" = "600,480";
       "kdeglobals"."Locale"."BinaryUnitDialect" = 2;
       "kdeglobals"."PreviewSettings"."EnableRemoteFolderThumbnail" = true;
@@ -370,8 +416,10 @@
       "kwinrc"."Effect-translucency"."MoveResize" = 10;
       "kwinrc"."NightColor"."Active" = true;
       "kwinrc"."Tiling"."padding" = 4;
-      "kwinrc"."Tiling/43bdd3d6-7962-5d40-a205-54862890cf2c"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      "kwinrc"."Tiling/8a22af93-92ac-519c-89fa-ff4904b2c943"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      "kwinrc"."Tiling/43bdd3d6-7962-5d40-a205-54862890cf2c"."tiles" =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      "kwinrc"."Tiling/8a22af93-92ac-519c-89fa-ff4904b2c943"."tiles" =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
       "kwinrc"."Xwayland"."Scale" = 1.25;
       "kwinrc"."org.kde.kdecoration2"."ButtonsOnLeft" = "M";
       "kwinrc"."org.kde.kdecoration2"."theme" = "__aurorae__svg__Win11OS-Nord";
@@ -398,7 +446,8 @@
       "spectaclerc"."VideoSave"."translatedScreencastsFolder" = "Screencasts";
     };
     dataFile = {
-      "kate/anonymous.katesession"."Document 0"."URL" = "file:///home/johannes/.local/share/plasma/look-and-feel/com.github.yeyushengfan258.Windows11-Nord/contents/splash/Splash.qml";
+      "kate/anonymous.katesession"."Document 0"."URL" =
+        "file:///home/johannes/.local/share/plasma/look-and-feel/com.github.yeyushengfan258.Windows11-Nord/contents/splash/Splash.qml";
       "kate/anonymous.katesession"."Kate Plugins"."cmaketoolsplugin" = false;
       "kate/anonymous.katesession"."Kate Plugins"."compilerexplorer" = false;
       "kate/anonymous.katesession"."Kate Plugins"."eslintplugin" = false;
@@ -434,7 +483,8 @@
       "kate/anonymous.katesession"."Kate Plugins"."textfilterplugin" = true;
       "kate/anonymous.katesession"."MainWindow0"."Active ViewSpace" = 0;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-H-Splitter" = "200,770,0";
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-0-Bar-0-TvList" = "kate_private_plugin_katefiletreeplugin,kateproject,kateprojectgit,lspclient_symbol_outline";
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-0-Bar-0-TvList" =
+        "kate_private_plugin_katefiletreeplugin,kateproject,kateprojectgit,lspclient_symbol_outline";
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-0-LastSize" = 200;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-0-SectSizes" = 0;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-0-Splitter" = 970;
@@ -446,36 +496,52 @@
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-2-LastSize" = 200;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-2-SectSizes" = 0;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-2-Splitter" = 770;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-3-Bar-0-TvList" = "output,diagnostics,kate_plugin_katesearch,kateprojectinfo,kate_private_plugin_katekonsoleplugin";
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-3-Bar-0-TvList" =
+        "output,diagnostics,kate_plugin_katesearch,kateprojectinfo,kate_private_plugin_katekonsoleplugin";
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-3-LastSize" = 204;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-3-SectSizes" = 0;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-3-Splitter" = 665;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-Style" = 2;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-Sidebar-Visible" = true;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-diagnostics-Position" = 3;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-diagnostics-Show-Button-In-Sidebar" = true;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-diagnostics-Show-Button-In-Sidebar" =
+        true;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-diagnostics-Visible" = false;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_plugin_katesearch-Position" = 3;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_plugin_katesearch-Show-Button-In-Sidebar" = true;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_plugin_katesearch-Visible" = false;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_private_plugin_katefiletreeplugin-Position" = 0;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_private_plugin_katefiletreeplugin-Show-Button-In-Sidebar" = true;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_private_plugin_katefiletreeplugin-Visible" = true;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_private_plugin_katekonsoleplugin-Position" = 3;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_private_plugin_katekonsoleplugin-Show-Button-In-Sidebar" = true;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_private_plugin_katekonsoleplugin-Visible" = false;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_plugin_katesearch-Show-Button-In-Sidebar" =
+        true;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_plugin_katesearch-Visible" =
+        false;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_private_plugin_katefiletreeplugin-Position" =
+        0;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_private_plugin_katefiletreeplugin-Show-Button-In-Sidebar" =
+        true;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_private_plugin_katefiletreeplugin-Visible" =
+        true;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_private_plugin_katekonsoleplugin-Position" =
+        3;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_private_plugin_katekonsoleplugin-Show-Button-In-Sidebar" =
+        true;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kate_private_plugin_katekonsoleplugin-Visible" =
+        false;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kateproject-Position" = 0;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kateproject-Show-Button-In-Sidebar" = true;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kateproject-Show-Button-In-Sidebar" =
+        true;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kateproject-Visible" = false;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kateprojectgit-Position" = 0;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kateprojectgit-Show-Button-In-Sidebar" = true;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kateprojectgit-Show-Button-In-Sidebar" =
+        true;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kateprojectgit-Visible" = false;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kateprojectinfo-Position" = 3;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kateprojectinfo-Show-Button-In-Sidebar" = true;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kateprojectinfo-Show-Button-In-Sidebar" =
+        true;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-kateprojectinfo-Visible" = false;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-lspclient_symbol_outline-Position" = 0;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-lspclient_symbol_outline-Show-Button-In-Sidebar" = true;
-      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-lspclient_symbol_outline-Visible" = false;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-lspclient_symbol_outline-Position" =
+        0;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-lspclient_symbol_outline-Show-Button-In-Sidebar" =
+        true;
+      "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-lspclient_symbol_outline-Visible" =
+        false;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-output-Position" = 3;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-output-Show-Button-In-Sidebar" = true;
       "kate/anonymous.katesession"."MainWindow0"."Kate-MDI-ToolView-output-Visible" = true;
@@ -504,10 +570,13 @@
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."Recursive" = true;
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."Replaces" = "";
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."Search" = "";
-      "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."SearchAsYouTypeAllProjects" = true;
-      "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."SearchAsYouTypeCurrentFile" = true;
+      "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."SearchAsYouTypeAllProjects" =
+        true;
+      "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."SearchAsYouTypeCurrentFile" =
+        true;
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."SearchAsYouTypeFolder" = true;
-      "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."SearchAsYouTypeOpenFiles" = true;
+      "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."SearchAsYouTypeOpenFiles" =
+        true;
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."SearchAsYouTypeProject" = true;
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."SearchDiskFiles" = "";
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."SearchDiskFiless" = "";
