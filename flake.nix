@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    #nixpkgs.url = "github:nixos/nixpkgs/048597ae8f390af6aedd0ffd08878aaf32f9a210";
+    #nixpkgs_desktop.url = "github:nixos/nixpkgs/048597ae8f390af6aedd0ffd08878aaf32f9a210";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -34,7 +34,8 @@
   outputs = { self, nixpkgs, home-manager, plasma-manager, nix-flakes, refind-nix, nix-gaming, nixos-hardware,... }@inputs:
   {
     nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem rec {
+      desktop = 
+        nixpkgs.lib.nixosSystem rec {
         specialArgs = {
         inherit inputs;
         nixFlakes = inputs.nix-flakes;
