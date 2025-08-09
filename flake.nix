@@ -76,7 +76,7 @@
                 plasma-manager.homeManagerModules.plasma-manager
               ];
             }
-            {nixpkgs.overlays = overlays;}
+            { nixpkgs.overlays = overlays; }
           ];
         };
 
@@ -102,6 +102,7 @@
                 plasma-manager.homeManagerModules.plasma-manager
               ];
             }
+            { nixpkgs.overlays = overlays; }
           ];
         };
       };
