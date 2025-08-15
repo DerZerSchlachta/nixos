@@ -147,6 +147,13 @@
 
   };
 
+
+  systemd.user.services.jellyfin-rpc = {
+    description = "Jellyfin RPC";
+    serviceConfig.ExecStart = "${pkgs.jellyfin-rpc}/bin/jellyfin-rpc";
+    wantedBy = [ "default.target" ];
+  };
+
   # List packages installed in system profile:
   environment.systemPackages = with pkgs; [
 
@@ -167,11 +174,9 @@
     wayland-utils # Wayland utilities
     wl-clipboard # Command-line copy/paste utilities for Wayland
 
-    #(sddm-astronaut.override {
-    #  embeddedTheme = "astronaut";
-    #})
-
     simple-scan # GUI scanning tool
+
+    bitwarden-desktop
 
     librewolf # Privacy-focused FireFox Fork -> better Browser, should be the system-standart for every user
 
@@ -193,10 +198,7 @@
     vlc
     calibre
 
-    #libsForQt5.qtstyleplugin-kvantum  #kvantum theme engine
-
     lutris # game launcher, should be able to launch most windows games using wine
-    bottles # another game launcher, if lutris doesn't work
     heroic # epic games launcher for linux
 
     noisetorch # noise reduction through a virtual microphone

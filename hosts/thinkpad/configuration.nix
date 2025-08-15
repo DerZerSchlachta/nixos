@@ -188,6 +188,8 @@
     dua
     dysk
 
+    bitwarden-desktop
+
     nixfmt-rfc-style
     nil # nix language server
 
