@@ -36,6 +36,7 @@
     ../../modules/system/users.nix
     ../../modules/system/displayManager.nix
     ../../modules/system/audio.nix
+    ../../modules/system/fingerprinting.nix
     #../../modules/system/rEFInd.nix
     #../../modules/system/virtualisation.nix
 
