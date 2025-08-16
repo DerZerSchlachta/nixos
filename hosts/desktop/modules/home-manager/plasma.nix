@@ -2,8 +2,8 @@
 {
 
   imports = [
-    ./window-rules.nix
-    ./workspace.nix
+   ../../../../modules/home-manager/plasma/window-rules.nix
+   ../../../../modules/home-manager/plasma/workspace.nix
   ];
 
   programs.plasma = {

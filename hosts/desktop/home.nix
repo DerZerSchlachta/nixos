@@ -13,6 +13,6 @@
     ../../modules/home-manager/nushell.nix
     ../../modules/home-manager/kdeconnect.nix
     ../../modules/home-manager/nix-search-tv.nix
-    #../../modules/home-manager/plasma/plasma.nix
+    ./modules/home-manager/plasma.nix
   ];
 }
