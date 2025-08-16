@@ -7,6 +7,10 @@
     ../../../../modules/home-manager/plasma/workspace.nix
     ../../../../modules/home-manager/plasma/panels.nix
     ../../../../modules/home-manager/plasma/session.nix
+<<<<<<< HEAD
+=======
+    ../../../../modules/home-manager/plasma/shortcuts.nix
+>>>>>>> b8ebf87 (sddm background + plasma manager config)
   ];
 
   programs.plasma = {

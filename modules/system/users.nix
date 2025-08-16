@@ -17,9 +17,6 @@
     home = "/home/johannes";
 
     shell = pkgs.nushell;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHZTXGgU26qfBpAfXsdTLwBaTmYfEvRbU6P9jBmTDk2/ administrator@WIN-OLCT0S163I8"
-    ];
 
     #All Programs / Tools for this User:
     packages = with pkgs; [
@@ -32,8 +29,6 @@
       #Multimedia:
       jellyfin-media-player # Media Player for Jellyfin
       jellyfin-rpc
-      #spotify-tui
-      #spotifyd
 
       #Command-line tools:
       fastfetch # command to display system info in Console
@@ -47,11 +42,6 @@
       vscode.fhs # Visual Studio Code
       libreoffice
       nextcloud-client
-
-      #Nextcloud-Calendar Integration:
-      kdePackages.korganizer
-      kdePackages.akonadi
-      kdePackages.kdepim-addons
 
       #Creativity:
       inkscape # Opensource SVG creator

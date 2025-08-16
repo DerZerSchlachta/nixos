@@ -67,6 +67,7 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
+
   services = {
     tailscale.enable = true; # tailscale support
     openssh.enable = true; # enabling ssh-connections
@@ -167,10 +168,6 @@
     haruna # Open source video player built with Qt/QML and libmpv
     wayland-utils # Wayland utilities
     wl-clipboard # Command-line copy/paste utilities for Wayland
-
-    #(sddm-astronaut.override {
-    #  embeddedTheme = "astronaut";
-    #})
 
     simple-scan # GUI scanning tool
 
