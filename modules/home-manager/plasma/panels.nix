@@ -31,6 +31,7 @@ programs.plasma.panels = [
               "applications:code.desktop"
               "applications:discord.desktop"
               "applications:steam.desktop"
+              "applications:thunderbird.desktop"
             ];
           };
         }
@@ -46,6 +47,7 @@ programs.plasma.panels = [
           };
         }
         "org.kde.plasma.digitalclock"
+        "org.kde.plasma.showdesktop"
       ];
     }
   ];
