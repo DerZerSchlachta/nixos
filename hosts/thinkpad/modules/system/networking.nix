@@ -50,11 +50,21 @@
   enable = true;
   ports = [ 22 ];
   settings = {
-    PasswordAuthentication = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
     AllowUsers = null;
     UseDns = true;
     X11Forwarding = false;
     PermitRootLogin = "yes";
     };
+  };
+
+    programs.ssh = {
+    startAgent = true;
+    enableAskPassword = true;
+  };
+
+  environment.variables = {
+    SSH_ASKPASS_REQUIRE = "prefer";
   };
 }

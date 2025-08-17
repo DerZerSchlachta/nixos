@@ -34,7 +34,7 @@
     ../../modules/system/bluetooth.nix
     ./modules/system/networking.nix
     ../../modules/system/vpn.nix
-    ../../modules/system/users.nix
+    ./modules/system/users.nix
     ../../modules/system/displayManager.nix
     ../../modules/system/audio.nix
     ../../modules/system/rEFInd.nix

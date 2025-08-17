@@ -16,6 +16,10 @@
     ];
     home = "/home/johannes";
 
+    openssh.authorizedKeys.keyFiles = [
+    /home/johannes/.secrets/.ssh_authorized_keys
+    ];
+    
     shell = pkgs.nushell;
 
     #All Programs / Tools for this User:
