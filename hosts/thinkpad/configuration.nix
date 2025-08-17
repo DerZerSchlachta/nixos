@@ -39,6 +39,7 @@
     ../../modules/system/fingerprinting.nix
     #../../modules/system/rEFInd.nix
     #../../modules/system/virtualisation.nix
+    ../../modules/gaming/rimsort.nix
 
     inputs.spicetify-nix.nixosModules.default
     inputs.nix-gaming.nixosModules.pipewireLowLatency
