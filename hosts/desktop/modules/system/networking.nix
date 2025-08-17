@@ -36,8 +36,8 @@
   enable = true;
   ports = [ 22 ];
   settings = {
-    settings.PasswordAuthentication = false;
-    settings.KbdInteractiveAuthentication = false;
+    PasswordAuthentication = false;
+    KbdInteractiveAuthentication = false;
     AllowUsers = null;
     UseDns = true;
     X11Forwarding = false;

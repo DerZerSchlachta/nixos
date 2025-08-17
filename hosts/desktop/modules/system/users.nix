@@ -17,7 +17,7 @@
     home = "/home/johannes";
 
     openssh.authorizedKeys.keyFiles = [
-    /home/johannes/.secrets/.ssh_authorized_keys
+      "JqUTwkynHLVf+sTi3LucvLpuRWvpUQJIKEOWl27YK44"
     ];
     
     shell = pkgs.nushell;
