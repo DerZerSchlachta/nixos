@@ -11,7 +11,8 @@
       };
       #move to "Gaming" Desktop
       apply = {
-        desktops = "Desktop_2";
+        desktops = "Desktop_2"; #name of rule + value
+        desktopsrule = 3;   # when to apply, 3 ~ apply initially / 2 ~ force
       };
     }
     {
@@ -25,6 +26,9 @@
 
       apply = {
         desktops = "Desktop_3";
+        desktopsrule = 3;
+        disableglobalshortcuts=true;
+        disableglobalshortcutsrule=2;
       };
     }
   ];
