@@ -16,8 +16,8 @@
     ];
     home = "/home/johannes";
 
-    openssh.authorizedKeys.keyFiles = [
-      "JqUTwkynHLVf+sTi3LucvLpuRWvpUQJIKEOWl27YK44"
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB/Tm8pI7kyVJg6bHE3Byop5ty9pRa0QnQqhQEUCdaKp johannes@thinkpad"
     ];
     
     shell = pkgs.nushell;
