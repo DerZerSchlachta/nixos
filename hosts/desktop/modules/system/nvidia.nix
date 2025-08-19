@@ -10,6 +10,8 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  programs.coolercontrol.nvidiaSupport = true; #nvidia support for coolercontrol
+
   hardware.nvidia = {
 
     # Modesetting is required.

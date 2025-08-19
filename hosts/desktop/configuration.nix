@@ -95,6 +95,8 @@
     };
   };
 
+  programs.coolercontrol.enable = true; # fan control-software
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
