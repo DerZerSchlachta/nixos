@@ -45,8 +45,22 @@
     ];
   };
 
-  swapDevices = lib.mkForce []; #disables swap device
+  #swapDevices = lib.mkForce []; #disables swap device
 
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 34 * 1024;  # 34 GiB, slightly more than your 32 GB RAM
+    }
+  ];
+
+boot.resumeDevice = "/dev/disk/by-uuid/1ad4cdfc-6399-4be2-a38a-f87aeb59aabe";
+boot.kernelParams = [
+  "resume=/dev/disk/by-uuid/1ad4cdfc-6399-4be2-a38a-f87aeb59aabe"
+  "resume_offset=101709824"
+];
+
+  
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction

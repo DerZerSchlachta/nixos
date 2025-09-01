@@ -48,6 +48,21 @@
     "${inputs.nixpkgs}/nixos/modules/services/hardware/sane_extra_backends/brscan4.nix" # Proprietary Drivers Package, not included by default
   ];
 
+    # PowerManagement related stuff:
+  powerManagement.enable = true;
+  powerManagement.powertop.enable = true;
+
+  services.power-profiles-daemon.enable = false;
+  services.tlp.enable = true;
+  services.tlp.settings = {
+        # Set threshold for when charging should start
+    START_CHARGE_THRESH_BAT0 = 40;
+
+    # Set threshold for when charging should stop
+    STOP_CHARGE_THRESH_BAT0 = 80;
+  };
+
+
   boot.loader.systemd-boot.enable = true;
 
   # Set your time zone.
