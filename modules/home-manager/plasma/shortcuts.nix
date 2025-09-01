@@ -1,7 +1,7 @@
 { ... }:
 {
   programs.plasma.shortcuts = {
-    kwin."Switch to Desktop 1" = "Num+1";
+    kwin."Switch to Desktop 1" = ["Num+1" "ctrl+1"];
     kwin."Switch to Desktop 2" = "Num+2";
     kwin."Switch to Desktop 3" = "Num+3";
     kwin."Switch to Desktop 4" = "Num+4";
