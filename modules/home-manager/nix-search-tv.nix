@@ -77,6 +77,9 @@
             }
 
             let selection = ${tv_command}
+            if ($selection | is-empty) {
+              return
+            }
             let identifier = ($selection | split row "/" | get 0)
             let item = ($selection | parse "{_}/ {item}" | get item.0 | str trim)
             match $identifier {

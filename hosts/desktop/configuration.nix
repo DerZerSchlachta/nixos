@@ -35,6 +35,7 @@
     ./modules/system/networking.nix
     ../../modules/system/vpn.nix
     ./modules/system/users.nix
+    #./modules/system/vpn.nix
     ../../modules/system/displayManager.nix
     ../../modules/system/audio.nix
     ../../modules/system/rEFInd.nix
@@ -115,6 +116,9 @@
       gamescopeSession.enable = true;
     };
 
+    ausweisapp.enable = true;
+    ausweisapp.openFirewall = true;
+
     gamemode.enable = true;
 
     nh = {
@@ -182,6 +186,7 @@
 
     bitwarden-desktop
 
+
     librewolf # Privacy-focused FireFox Fork -> better Browser, should be the system-standart for every user
 
     #(terminal)-utility
@@ -195,6 +200,8 @@
     efibootmgr
     dua
     dysk
+
+    lm_sensors # tool for readin hardware sensors, needed by coolercontrol
 
     nixfmt-rfc-style
     nil # nix language server
