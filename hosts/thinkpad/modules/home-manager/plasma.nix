@@ -7,7 +7,7 @@
     ../../../../modules/home-manager/plasma/workspace.nix
     ../../../../modules/home-manager/plasma/panels.nix
     ../../../../modules/home-manager/plasma/session.nix
-    ../../../../modules/home-manager/plasma/shortcuts.nix
+    ./shortcuts.nix
     ../../../../modules/home-manager/plasma/power.nix
   ];
 
