@@ -7,8 +7,8 @@
     ../../../../modules/home-manager/plasma/workspace.nix
     ../../../../modules/home-manager/plasma/panels.nix
     ../../../../modules/home-manager/plasma/session.nix
-    ./shortcuts.nix
-    ../../../../modules/home-manager/plasma/power.nix
+    #./shortcuts.nix
+    #../../../../modules/home-manager/plasma/power.nix
   ];
 
   programs.plasma = {

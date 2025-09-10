@@ -47,7 +47,7 @@
 
     "${inputs.nixpkgs}/nixos/modules/services/hardware/sane_extra_backends/brscan4.nix" # Proprietary Drivers Package, not included by default
   ];
-
+/*
     # PowerManagement related stuff:
   powerManagement.enable = true;
   powerManagement.powertop.enable = true;
@@ -62,7 +62,7 @@
     STOP_CHARGE_THRESH_BAT0 = 80;
   };
 
-
+*/
   boot.loader.systemd-boot.enable = true;
 
   # Set your time zone.
