@@ -40,6 +40,7 @@
     #../../modules/system/rEFInd.nix
     #../../modules/system/virtualisation.nix
     ../../modules/gaming/rimsort.nix
+    ../../modules/jellyfin-media-player.nix
 
     inputs.spicetify-nix.nixosModules.default
     inputs.nix-gaming.nixosModules.pipewireLowLatency
@@ -47,8 +48,8 @@
 
     "${inputs.nixpkgs}/nixos/modules/services/hardware/sane_extra_backends/brscan4.nix" # Proprietary Drivers Package, not included by default
   ];
-/*
-    # PowerManagement related stuff:
+
+  # PowerManagement related stuff:
   powerManagement.enable = true;
   powerManagement.powertop.enable = true;
 
@@ -62,7 +63,7 @@
     STOP_CHARGE_THRESH_BAT0 = 80;
   };
 
-*/
+
   boot.loader.systemd-boot.enable = true;
 
   # Set your time zone.
@@ -165,6 +166,12 @@
 
   };
 
+    systemd.user.services.jellyfin-rpc = {
+    description = "Jellyfin RPC";
+    serviceConfig.ExecStart = "${pkgs.jellyfin-rpc}/bin/jellyfin-rpc";
+    wantedBy = [ "default.target" ];
+  };
+
   # List packages installed in system profile:
   environment.systemPackages = with pkgs; [
 
@@ -207,7 +214,7 @@
     nil # nix language server
 
     vlc
-    calibre
+    #calibre
 
     #libsForQt5.qtstyleplugin-kvantum  #kvantum theme engine
 

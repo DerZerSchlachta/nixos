@@ -28,6 +28,8 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    nixpkgs-jellyfin-media-player.url = "github:nixos/nixpkgs/648f70160c03151bc2121d179291337ad6bc564b";
+
     #plasma-manager.url = "github:nix-community/plasma-manager";
   };
 
@@ -73,7 +75,7 @@
               home-manager.users.johannes = ./hosts/desktop/home.nix;
               home-manager.backupFileExtension = "backup";
               home-manager.sharedModules = [
-                plasma-manager.homeManagerModules.plasma-manager
+                plasma-manager.homeModules.plasma-manager
               ];
             }
             { nixpkgs.overlays = overlays; }
@@ -99,13 +101,13 @@
               home-manager.users.johannes = ./hosts/thinkpad/home.nix;
               home-manager.backupFileExtension = "backup";
               home-manager.sharedModules = [
-                plasma-manager.homeManagerModules.plasma-manager
+                plasma-manager.homeModules.plasma-manager
               ];
             }
             { nixpkgs.overlays = overlays; }
           ];
         };
       };
-      #homeManagerModules.plasma = plasma-manager.homeManagerModules.plasma-manager;
+      #homeModules.plasma = plasma-manager.homeModules.plasma-manager;
     };
 }
