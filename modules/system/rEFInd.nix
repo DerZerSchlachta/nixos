@@ -7,9 +7,11 @@
 }:
 
 {
+  /*
   imports = [
     inputs.refind-nix.nixosModules.refind
   ];
+  */
 
   boot.loader = {
 
@@ -20,6 +22,7 @@
       efiSysMountPoint = "/boot";
       canTouchEfiVariables = true;
     };
+    /*
     refind = {
       enable = false;
       maxGenerations = 10;
@@ -27,5 +30,6 @@
 
       ];
     };
+    */
   };
 }

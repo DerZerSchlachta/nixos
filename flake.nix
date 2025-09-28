@@ -108,6 +108,5 @@
           ];
         };
       };
-      #homeModules.plasma = plasma-manager.homeModules.plasma-manager;
     };
 }

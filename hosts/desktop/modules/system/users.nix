@@ -31,7 +31,7 @@
       signal-desktop
 
       #Multimedia:
-      jellyfin-media-player # Media Player for Jellyfin
+      #jellyfin-media-player # Media Player for Jellyfin
       jellyfin-rpc
 
       #Command-line tools:
