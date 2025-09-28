@@ -49,6 +49,11 @@
     "${inputs.nixpkgs}/nixos/modules/services/hardware/sane_extra_backends/brscan4.nix" # Proprietary Drivers Package, not included by default
   ];
 
+  services.prowlarr = {
+  enable = true;
+  openFirewall = true;
+};
+
   # PowerManagement related stuff:
   powerManagement.enable = true;
   powerManagement.powertop.enable = true;

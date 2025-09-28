@@ -17,6 +17,7 @@
   ];
 
   services.openvpn.servers = {
+    /*
     officeVPN = {
       config = ''config ../../../../openvpn/Amsterdam.conf '';
       updateResolvConf = true;
@@ -30,6 +31,7 @@
       config = ''config ../../../../../openvpn/Amsterdam.conf '';
       updateResolvConf = true;
     };
+    */
 
   };
 }
