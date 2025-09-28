@@ -1,7 +1,5 @@
 # modules/system/displayManager.nix
 { config, pkgs, ... }:
-
-
 let
   # Define the custom background package with the correct relative path
   background-package = pkgs.stdenvNoCC.mkDerivation {
@@ -12,7 +10,6 @@ let
       cp $src $out
     '';
   };
-  
 in
 {
   services.xserver.enable = true;
