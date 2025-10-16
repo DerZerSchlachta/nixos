@@ -38,8 +38,9 @@
     ../../modules/system/audio.nix
     ../../modules/system/fingerprinting.nix
     #../../modules/system/rEFInd.nix
-    #../../modules/system/virtualisation.nix
+    ../../modules/system/virtualisation.nix
     ../../modules/gaming/rimsort.nix
+    ../../modules/gaming/ckan.nix
     ../../modules/jellyfin-media-player.nix
 
     inputs.spicetify-nix.nixosModules.default
@@ -50,23 +51,43 @@
   ];
 
   services.prowlarr = {
-  enable = true;
-  openFirewall = true;
-};
+    enable = true;
+    openFirewall = true;
+  };
 
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+    user="johannes";
+  };
+  
   # PowerManagement related stuff:
   powerManagement.enable = true;
-  powerManagement.powertop.enable = true;
+  #powerManagement.powertop.enable = true;
 
   services.power-profiles-daemon.enable = false;
-  services.tlp.enable = true;
-  services.tlp.settings = {
-        # Set threshold for when charging should start
-    START_CHARGE_THRESH_BAT0 = 40;
+services.tlp.enable = true;
+services.tlp.settings = {
+  # Battery charge thresholds
+  START_CHARGE_THRESH_BAT0 = 40;
+  STOP_CHARGE_THRESH_BAT0 = 80;
 
-    # Set threshold for when charging should stop
-    STOP_CHARGE_THRESH_BAT0 = 80;
-  };
+  # AC settings (as before)
+  CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+  CPU_SCALING_GOVERNOR_ON_AC = "performance";
+  PLATFORM_PROFILE_ON_AC = "performance";
+  CPU_BOOST_ON_AC = 1;
+  DISK_APM_LEVEL_ON_AC = "254";
+  PCIE_ASPM_ON_AC = "performance";
+
+  # 🔋 Battery settings — ADD THESE
+  CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+  CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  PLATFORM_PROFILE_ON_BAT = "low-power";
+  CPU_BOOST_ON_BAT = 0;
+  DISK_APM_LEVEL_ON_BAT = "128";  # Balanced
+  PCIE_ASPM_ON_BAT = "powersave";
+};
 
 
   boot.loader.systemd-boot.enable = true;
@@ -219,6 +240,9 @@
     nil # nix language server
 
     vlc
+    jellyfin
+    jellyfin-web
+    jellyfin-ffmpeg
     #calibre
 
     #libsForQt5.qtstyleplugin-kvantum  #kvantum theme engine

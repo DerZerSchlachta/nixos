@@ -9,6 +9,7 @@
     ../../../../modules/home-manager/plasma/session.nix
     #./shortcuts.nix
     #../../../../modules/home-manager/plasma/power.nix
+    ../../../../modules/home-manager/plasma/input.nix
   ];
 
   programs.plasma = {
