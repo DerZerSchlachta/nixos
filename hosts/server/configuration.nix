@@ -18,7 +18,7 @@
   };
 
   environment.sessionVariables = {
-    FLAKE = "/home/admin/nixos";
+    NH_FLAKE = "/home/admin/nixos";
   };
 
 
@@ -64,6 +64,7 @@
 
   
 services.xserver.enable = true;
+
   services.desktopManager.plasma6.enable = true;
 
   services.displayManager.sddm.enable = true;
@@ -118,7 +119,7 @@ services.xrdp.openFirewall = true;
 
   programs.nh = {
     enable = true;
-    flake = "/home/johannes/nixos";
+    flake = "/home/admin/nixos";
   };
 
   # Install firefox.
