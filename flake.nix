@@ -108,6 +108,26 @@
             { nixpkgs.overlays = overlays; }
           ];
         };
+
+        server = nixpkgs.lib.nixosSystem rec {
+          specialArgs = {
+            inherit inputs;
+            nixFlakes = inputs.nix-flakes;
+          };
+
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/server/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.admin = ./hosts/server/home.nix;
+              home-manager.backupFileExtension = "backup";
+            }
+            { nixpkgs.overlays = overlays; }
+          ];
+        };
       };
     };
 }
