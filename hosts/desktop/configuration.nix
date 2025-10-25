@@ -42,6 +42,7 @@
     ../../modules/system/virtualisation.nix
     ../../modules/gaming/rimsort.nix
     ../../modules/jellyfin-media-player.nix
+    ../../modules/gaming/ckan.nix
 
     inputs.spicetify-nix.nixosModules.default
     inputs.nix-gaming.nixosModules.pipewireLowLatency

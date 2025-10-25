@@ -15,7 +15,7 @@
     openvpn
     networkmanagerapplet
   ];
-
+  /*
   services.openvpn.servers = {
     /*
     officeVPN = {
@@ -34,4 +34,5 @@
     */
 
   };
+  */
 }
