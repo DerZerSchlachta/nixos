@@ -89,7 +89,6 @@ services.tlp.settings = {
   PCIE_ASPM_ON_BAT = "powersave";
 };
 
-
   boot.loader.systemd-boot.enable = true;
 
   # Set your time zone.
@@ -158,6 +157,9 @@ services.tlp.settings = {
     };
 
     gamemode.enable = true;
+
+    ausweisapp.enable = true;
+    ausweisapp.openFirewall = true;
 
     nh = {
       enable = true;
