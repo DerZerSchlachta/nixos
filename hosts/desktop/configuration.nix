@@ -36,6 +36,7 @@
     ../../modules/system/vpn.nix
     ./modules/system/users.nix
     #./modules/system/vpn.nix
+    ./modules/system/rclone.nix
     ../../modules/system/displayManager.nix
     ../../modules/system/audio.nix
     ../../modules/system/rEFInd.nix

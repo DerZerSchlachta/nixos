@@ -31,7 +31,7 @@
       config = ''config ../../../../../openvpn/Amsterdam.conf '';
       updateResolvConf = true;
     };
-    */
+    
 
   };
   */

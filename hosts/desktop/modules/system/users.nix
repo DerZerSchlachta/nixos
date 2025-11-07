@@ -55,6 +55,5 @@
       mangohud # displaying performance stats through an ingame-overlay
     ];
   };
-
   users.defaultUserShell = pkgs.nushell;
 }

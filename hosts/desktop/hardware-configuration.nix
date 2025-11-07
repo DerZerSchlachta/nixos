@@ -81,6 +81,16 @@
       "nofail"
     ];
   };
+    fileSystems."/mnt/paperless-consume" = {
+    device = "192.168.0.202:/mnt/user/paperless_scans/johannes";
+    fsType = "nfs";
+    options = [
+      "x-systemd.automount"
+      "x-systemd.requires=network-online.target"
+      "x-systemd.after=network-online.target"
+      "nofail"
+    ];
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
