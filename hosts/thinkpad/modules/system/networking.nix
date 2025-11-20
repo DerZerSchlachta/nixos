@@ -5,7 +5,8 @@
   ...
 }:
 {
-  #services.resolved.enable = true;
+  #services.resolved.enable = true;#
+  systemd.services.NetworkManager-wait-online.enable = false;
   networking = {
     #hostId = "5388f8c5";
     hostName = "thinkpad";
@@ -19,15 +20,8 @@
 
     resolvconf.enable = true;
 
+
     #wireless.iwd.enable = true;
-
-    interfaces = {
-      enp2s0f0.useDHCP = true;
-      enp5s0.useDHCP = true;
-      wlp3s0.useDHCP = true;
-    };
-
-    useDHCP = false;
 
     firewall = {
       enable = true;

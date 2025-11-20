@@ -23,8 +23,10 @@
   };
 
   environment.sessionVariables = {
-    FLAKE = "/home/johannes/nixos";
+    NH_FLAKE = "/home/johannes/nixos";
   };
+  
+  programs.nix-ld.enable = true;
 
   imports = [
     # Include the results of the hardware scan.
@@ -36,7 +38,7 @@
     ./modules/system/users.nix
     ../../modules/system/displayManager.nix
     ../../modules/system/audio.nix
-    ../../modules/system/fingerprinting.nix
+    #../../modules/system/fingerprinting.nix
     #../../modules/system/rEFInd.nix
     ../../modules/system/virtualisation.nix
     ../../modules/gaming/rimsort.nix

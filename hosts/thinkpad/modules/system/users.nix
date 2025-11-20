@@ -45,7 +45,6 @@
       #Productivity:
       vscode.fhs # Visual Studio Code
       libreoffice
-      nextcloud-client
 
       #Creativity:
       inkscape # Opensource SVG creator
