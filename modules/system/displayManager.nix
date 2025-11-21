@@ -22,6 +22,9 @@ in
     autoNumlock = true;
   };
 
+  services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "startplasma-x11";
+  services.xrdp.openFirewall = true;
 
   environment.systemPackages = with pkgs; [
       (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
