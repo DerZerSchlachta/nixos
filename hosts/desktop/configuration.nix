@@ -214,6 +214,8 @@
 
     lutris # game launcher, should be able to launch most windows games using wine
     heroic # epic games launcher for linux
+    winetricks
+    wineWowPackages.waylandFull
 
     noisetorch # noise reduction through a virtual microphone
 

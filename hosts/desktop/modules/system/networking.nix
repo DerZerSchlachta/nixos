@@ -9,7 +9,10 @@
     hostName = "desktop";
     usePredictableInterfaceNames = true;
 
-    interfaces.eno1.macAddress = "02:00:00:00:00:01";
+    interfaces.eno1 = {
+      macAddress = "02:00:00:00:00:01";
+      wakeOnLan.enable = true;
+    };
 
     networkmanager.enable = true;
 
@@ -29,6 +32,8 @@
           to = 1764;
         }
       ];
+
+      allowedUDPPorts = [ 9 ];
     };
   };
 
