@@ -39,6 +39,7 @@
     ../../modules/system/displayManager.nix
     ../../modules/system/audio.nix
     ../../modules/system/rEFInd.nix
+    #../../modules/system/slsk.nix
     ../../modules/system/virtualisation.nix
     ../../modules/gaming/rimsort.nix
     ../../modules/jellyfin-media-player.nix
@@ -210,6 +211,8 @@
 
     vlc
     calibre
+    feishin
+    streamrip
 
     lutris # game launcher, should be able to launch most windows games using wine
     heroic # epic games launcher for linux
