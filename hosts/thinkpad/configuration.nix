@@ -25,8 +25,6 @@
   environment.sessionVariables = {
     NH_FLAKE = "/home/johannes/nixos";
   };
-  
-  programs.nix-ld.enable = true;
 
   imports = [
     # Include the results of the hardware scan.
@@ -62,6 +60,18 @@
     openFirewall = true;
     user="johannes";
   };
+
+  
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      libGLU
+      libGL
+      xorg.libX11
+      ncurses
+    ];
+  };
+
   
   # PowerManagement related stuff:
   powerManagement.enable = true;

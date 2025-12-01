@@ -23,7 +23,7 @@
   };
 
   environment.sessionVariables = {
-    FLAKE = "/home/johannes/nixos";
+    NH_FLAKE = "/home/johannes/nixos";
   };
 
   imports = [
@@ -36,7 +36,6 @@
     ../../modules/system/vpn.nix
     ./modules/system/users.nix
     #./modules/system/vpn.nix
-    ./modules/system/rclone.nix
     ../../modules/system/displayManager.nix
     ../../modules/system/audio.nix
     ../../modules/system/rEFInd.nix

@@ -45,7 +45,6 @@
       #Productivity:
       vscode.fhs # Visual Studio Code
       libreoffice
-      nextcloud-client
 
       #Creativity:
       inkscape # Opensource SVG creator
@@ -55,5 +54,6 @@
       mangohud # displaying performance stats through an ingame-overlay
     ];
   };
+
   users.defaultUserShell = pkgs.nushell;
 }
