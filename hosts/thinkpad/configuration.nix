@@ -257,6 +257,8 @@ services.tlp.settings = {
     jellyfin
     jellyfin-web
     jellyfin-ffmpeg
+    feishin
+    streamrip
     #calibre
 
     #libsForQt5.qtstyleplugin-kvantum  #kvantum theme engine
