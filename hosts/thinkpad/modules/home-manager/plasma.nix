@@ -2,14 +2,14 @@
 {
 
   imports = [
-    ../../../../modules/home-manager/plasma/kwin.nix
-    ../../../../modules/home-manager/plasma/window-rules.nix
-    ../../../../modules/home-manager/plasma/workspace.nix
-    ../../../../modules/home-manager/plasma/panels.nix
-    ../../../../modules/home-manager/plasma/session.nix
+    ./plasma/kwin.nix
+    ./plasma/window-rules.nix
+    ./plasma/workspace.nix
+    ./plasma/panels.nix
+    ./plasma/session.nix
     #./shortcuts.nix
-    #../../../../modules/home-manager/plasma/power.nix
-    ../../../../modules/home-manager/plasma/input.nix
+    #./plasma/power.nix
+    ./plasma/input.nix
   ];
 
   programs.plasma = {
