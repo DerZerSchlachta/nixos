@@ -37,7 +37,7 @@
     ./modules/system/users.nix
     #./modules/system/vpn.nix
     ../../modules/system/displayManager.nix
-    ../../modules/system/audio.nix
+    ./modules/system/audio.nix
     ../../modules/system/rEFInd.nix
     #../../modules/system/slsk.nix
     ../../modules/system/virtualisation.nix
@@ -213,6 +213,9 @@
     calibre
     feishin
     streamrip
+
+    gupnp-tools
+    gssdp-tools
 
     lutris # game launcher, should be able to launch most windows games using wine
     heroic # epic games launcher for linux

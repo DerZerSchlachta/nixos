@@ -62,7 +62,7 @@
   ];
   */
   fileSystems."/mnt/Johannes" = {
-    device = "192.168.0.202:/mnt/user/Johannes";
+    device = "192.168.178.202:/mnt/user/Johannes";
     fsType = "nfs";
     options = [
       "x-systemd.automount"
@@ -72,7 +72,7 @@
     ];
   };
   fileSystems."/mnt/media" = {
-    device = "192.168.0.202:/mnt/user/Media";
+    device = "192.168.178.202:/mnt/user/Media";
     fsType = "nfs";
     options = [
       "x-systemd.automount"
@@ -81,8 +81,8 @@
       "nofail"
     ];
   };
-    fileSystems."/mnt/paperless-consume" = {
-    device = "192.168.0.202:/mnt/user/paperless_scans/johannes";
+    fileSystems."/mnt/paperless-scans" = {
+    device = "192.168.178.202:/mnt/user/paperless_scans/johannes";
     fsType = "nfs";
     options = [
       "x-systemd.automount"
