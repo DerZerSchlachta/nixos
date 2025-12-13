@@ -82,7 +82,7 @@
     ];
   };
     fileSystems."/mnt/paperless-scans" = {
-    device = "192.168.178.202:/mnt/user/paperless_scans/johannes";
+    device = "192.168.178.202:/mnt/user/paperless-scans";
     fsType = "nfs";
     options = [
       "x-systemd.automount"
