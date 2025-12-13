@@ -11,7 +11,6 @@
     usePredictableInterfaceNames = true;
 
     interfaces.eno1 = {
-      macAddress = "02:00:00:00:00:01";
       wakeOnLan.enable = true;
     };
 
