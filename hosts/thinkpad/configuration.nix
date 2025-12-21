@@ -10,7 +10,6 @@
 }:
 
 {
-
   nix.settings = {
     experimental-features = [
       "nix-command"
@@ -18,8 +17,8 @@
     ];
 
     #Cachix for nix-gaming:
-    substituters = [ "https://nix-gaming.cachix.org" ];
-    trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
+    #substituters = [ "https://nix-gaming.cachix.org" ];
+    #trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
   };
 
   environment.sessionVariables = {
@@ -127,7 +126,12 @@ services.tlp.settings = {
     openssh.enable = true; # enabling ssh-connections
 
     flatpak.enable = true; # installing (non-declarative) packages through flatpak / flathub
-    printing.enable = true;
+    printing = {
+      enable = true;
+      drivers = [
+        pkgs.hplip
+      ];
+    };
     avahi = {
       enable = true;
       nssmdns4 = true;
@@ -137,8 +141,10 @@ services.tlp.settings = {
     udisks2.enable = true;
 
   };
+
   hardware.sane = {
     enable = true; # enables support for SANE scanners
+    extraBackends = [ pkgs.hplip ];
     brscan4 = {
       enable = true;
       netDevices = {

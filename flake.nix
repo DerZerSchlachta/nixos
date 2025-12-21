@@ -45,6 +45,7 @@
     }@inputs:
     let
       overlays = [
+        /*
         (final: prev: {
           rimsort = prev.rimsort.overrideAttrs (old: {
             installPhase = old.installPhase + ''
@@ -53,6 +54,7 @@
             '';
           });
         })
+        */
       ];
     in
     {

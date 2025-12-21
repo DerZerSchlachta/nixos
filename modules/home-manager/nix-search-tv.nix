@@ -7,6 +7,7 @@
 {
   # https://github.com/3timeslazy/nix-search-tv
 
+  programs.television.enable = true;
   programs.nix-search-tv = {
     enable = true;
     enableTelevisionIntegration = lib.mkIf config.programs.television.enable true;

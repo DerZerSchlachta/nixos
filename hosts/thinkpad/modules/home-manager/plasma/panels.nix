@@ -2,6 +2,7 @@
 {
 programs.plasma.panels = [
     {
+      screen = "all";
       floating = true;
       location = "bottom";
       opacity = "translucent";
