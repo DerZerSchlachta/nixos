@@ -21,8 +21,6 @@
 
     nix-flakes.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-gaming.url = "github:fufexan/nix-gaming";
-
     refind-nix.url = "github:DerZerSchlachta/refind-nix"; # a nixos compatible version of rEFInd Bootmanager, aka. the nicest looking bootmanager
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
@@ -42,7 +40,6 @@
       plasma-manager,
       nix-flakes,
       refind-nix,
-      nix-gaming,
       nixos-hardware,
       ...
     }@inputs:

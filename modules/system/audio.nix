@@ -8,14 +8,10 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       audio.enable = true;
-
-      lowLatency = {
-        enable = true;
-        quantum = 64;
-        rate = 48000;
-      };
     };
   };
+
+  security.rtkit.enable = true;
 
   services.pipewire.extraConfig.pipewire = {
     "99-input-denoising" = {

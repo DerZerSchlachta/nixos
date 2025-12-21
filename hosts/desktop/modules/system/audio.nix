@@ -9,13 +9,6 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-
-      lowLatency = {
-        enable = true;
-        quantum = 64;
-        rate = 48000;
-      };
-
       extraConfig.pipewire."99-input-denoising" = {
         "context.modules" = [
           {
@@ -54,24 +47,5 @@
         ];
       };
     };
-  };
-
-  services.mpd = {
-    enable = true;
-    user = "johannes";
-    musicDirectory = "/home/johannes/Music/";
-
-    extraConfig = ''
-      audio_output {
-        type "pipewire"
-        name "alsa_output.pci-0000_0c_00.4.analog-stereo"
-      }
-    '';
-
-    network.listenAddress = "any";
-  };
-
-  systemd.services.mpd.environment = {
-    XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.johannes.uid}";
   };
 }

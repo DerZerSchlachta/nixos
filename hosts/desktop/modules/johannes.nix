@@ -30,16 +30,7 @@
       telegram-desktop
       signal-desktop
 
-      #Multimedia:
-      #jellyfin-media-player # Media Player for Jellyfin
-      jellyfin-rpc
-
       #Command-line tools:
-      fastfetch # command to display system info in Console
-      cool-retro-term # retro-looking console (not very practical)
-      tldr # helpful commandline tool which explains a given command
-      git # git repository managemnet
-      wget # downloader
       freerdp # Remote Desktop Client for the Console
 
       #Productivity:
@@ -50,8 +41,10 @@
       inkscape # Opensource SVG creator
       gimp3 # Opensource Photo editor
 
-      #Gaming:
-      mangohud # displaying performance stats through an ingame-overlay
+      librewolf # Privacy-focused FireFox Fork -> better Browser
+
+      feishin
+      streamrip
     ];
   };
 
