@@ -13,6 +13,7 @@
 
   hardware.sane = {
     enable = true; # enables support for SANE scanners
+    extraBackends = [ pkgs.hplip ];
     brscan4 = {
       enable = true;
       netDevices = {
@@ -29,5 +30,10 @@
   ];
 
   #printing:
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [
+      pkgs.hplip
+    ];
+  };
 }
