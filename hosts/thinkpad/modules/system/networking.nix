@@ -18,7 +18,7 @@
       #dns = "systemd-resolved";
     };
 
-    resolvconf.enable = true;
+    #resolvconf.enable = true;
 
 
     #wireless.iwd.enable = true;
