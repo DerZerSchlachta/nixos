@@ -54,7 +54,7 @@
   boot.loader.systemd-boot.enable = true;
 
   networking = {
-    hostName = "thinkpad";
+    hostName = "thinkpad-jo";
   };
 
   services = {

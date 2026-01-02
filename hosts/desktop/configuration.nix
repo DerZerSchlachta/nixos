@@ -30,6 +30,7 @@
       ../../modules/services/spicetify.nix  #spicetify spotify-client
       ../../modules/services/jellyfin
       ../../modules/services/printer.nix
+      ../../modules/services/ollama.nix   #local LLM deployment
 
     #programs:
       ../../modules/programs/ausweisapp.nix
@@ -51,13 +52,17 @@
   };
 
   networking = {
-    hostName = "desktop";
+    hostName = "desktop-jo";
     interfaces.eno1.wakeOnLan.enable = true;
   };
 
   services = {
     flatpak.enable = true; # installing (non-declarative) packages through flatpak / flathub
     udisks2.enable = true;
+    displayManager = {
+      autoLogin.enable = true;
+      autoLogin.user = "johannes";
+    };
   };
   
   programs = {

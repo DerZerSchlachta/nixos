@@ -59,7 +59,7 @@
     in
     {
       nixosConfigurations = {
-        desktop = nixpkgs.lib.nixosSystem rec {
+        desktop-jo = nixpkgs.lib.nixosSystem rec {
           specialArgs = {
             inherit inputs;
             nixFlakes = inputs.nix-flakes;
@@ -82,7 +82,7 @@
           ];
         };
 
-        thinkpad = nixpkgs.lib.nixosSystem rec {
+        thinkpad-jo = nixpkgs.lib.nixosSystem rec {
           specialArgs = {
             inherit inputs;
             nixFlakes = inputs.nix-flakes;
