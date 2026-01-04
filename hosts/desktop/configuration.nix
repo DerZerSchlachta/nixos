@@ -55,7 +55,17 @@
     hostName = "desktop-jo";
     interfaces.eno1.wakeOnLan.enable = true;
   };
-
+  /*
+  services.create_ap = {
+    enable = true;
+    settings = {
+      INTERNET_IFACE = "eno1";
+      WIFI_IFACE = "wlp7s0";
+      SSID = "JoHotspot";
+      PASSPHRASE = "1q2w3e4r";
+    };
+  };
+  */
   services = {
     flatpak.enable = true; # installing (non-declarative) packages through flatpak / flathub
     udisks2.enable = true;
