@@ -5,5 +5,8 @@
   ...
 }:
 {
-  services.tailscale.enable = true; # tailscale support
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+  };
 }

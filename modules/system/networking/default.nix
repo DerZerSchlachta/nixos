@@ -12,5 +12,9 @@
     hostName = lib.mkDefault "nixos";
     usePredictableInterfaceNames = true;
     networkmanager.enable = true;
+    resolvconf.enable = false;
+    nameservers = [ ];
+    enableIPv6 = false;
   };
+  services.resolved.enable = true;
 }
