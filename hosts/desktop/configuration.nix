@@ -39,6 +39,7 @@
 
     #gaming:
     ../../modules/gaming
+    ../../modules/gaming/sunshine.nix
   ];
 
   boot.loader = {

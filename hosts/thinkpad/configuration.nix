@@ -70,7 +70,7 @@
 
   # List packages installed in system profile:
   environment.systemPackages = with pkgs; [
-
+    moonlight-qt #game streaming client for sunshine
   ];
 
   # This value determines the NixOS release from which the default
