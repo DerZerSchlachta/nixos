@@ -36,6 +36,7 @@
       #Productivity:
       vscode.fhs # Visual Studio Code
       libreoffice
+      freecad
 
       #Creativity:
       inkscape # Opensource SVG creator
