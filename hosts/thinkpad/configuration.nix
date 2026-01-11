@@ -35,8 +35,8 @@
       ../../modules/system/audio.nix
       ../../modules/system/networking
       ../../modules/system/bluetooth.nix
-      ../../modules/system/virtualisation.nix
-      ../../modules/system/displayManager.nix
+      #../../modules/system/virtualisation.nix
+      ./modules/display.nix
       
     #services:
       ../../modules/services/spicetify.nix  #spicetify spotify-client
@@ -56,6 +56,10 @@
   networking = {
     hostName = "thinkpad-jo";
   };
+
+  virtualisation.docker.enable = true;
+
+  systemd.network.wait-online.enable = false; #could be problematic, but kinda delays boot a bit
 
   services = {
     flatpak.enable = true; # installing (non-declarative) packages through flatpak / flathub

@@ -2,8 +2,8 @@
 { config, lib, pkgs, ... }:
 let
   hostname  = config.networking.hostName or "";
-  isDesktop = hostname == "desktop";
-  isLaptop  = hostname == "thinkpad";
+  isDesktop = hostname == "desktop-jo";
+  isLaptop  = hostname == "thinkpad-jo";
   isServer  = hostname == "server";
 in
 {
