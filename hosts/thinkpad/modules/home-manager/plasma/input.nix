@@ -8,5 +8,16 @@
       vendorId = "04F3";
     }
   ];
+  programs.plasma.input.keyboard = {
+    layouts = [
+      {
+        layout = "de";
+      }
+      {
+        displayName = "EurKey";
+        layout = "eu";
+      }
+    ];
+  };
 }
 

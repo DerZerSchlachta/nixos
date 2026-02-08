@@ -29,7 +29,7 @@ in
   ];
 
   services.xserver.xkb = {
-    layout = "de";
+    layout = "eu";
     variant = "";
   };
 

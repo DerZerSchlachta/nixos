@@ -7,7 +7,7 @@
     ./plasma/workspace.nix
     ./plasma/panels.nix
     ./plasma/session.nix
-    #./shortcuts.nix
+    ./shortcuts.nix
     #./plasma/power.nix
     ./plasma/input.nix
   ];
