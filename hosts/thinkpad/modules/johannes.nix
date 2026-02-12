@@ -41,6 +41,9 @@
         # Music
         feishin
         streamrip
+        lmms
+
+        firefox
       ])
       ++
       (with stablePkgs; [
