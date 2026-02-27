@@ -42,8 +42,13 @@
       inkscape # Opensource SVG creator
       gimp3 # Opensource Photo editor
 
+      librewolf # Privacy-focused FireFox Fork -> better Browser
+      firefox
+
       feishin
+      aonsoku
       streamrip
+      mkvtoolnix
     ];
   };
 

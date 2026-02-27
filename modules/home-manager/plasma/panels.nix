@@ -26,13 +26,13 @@ programs.plasma.panels = [
             launchers = [
               "applications:org.kde.konsole.desktop"
               "applications:org.kde.dolphin.desktop"
-              "applications:org.kde.kate.desktop"
-              "applications:librewolf.desktop"
-              "applications:spotify.desktop"
+              "applications:firefox.desktop"
+              "applications:feishin.desktop"
               "applications:code.desktop"
               "applications:discord.desktop"
               "applications:steam.desktop"
               "applications:thunderbird.desktop"
+              "applications:signal.desktop"
             ];
           };
         }
