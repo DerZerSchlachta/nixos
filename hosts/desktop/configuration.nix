@@ -27,15 +27,17 @@
       ../../modules/system/displayManager.nix
       
     #services:
-      ../../modules/services/spicetify.nix  #spicetify spotify-client
+      #../../modules/services/spicetify.nix  #spicetify spotify-client
       ../../modules/services/jellyfin
       ../../modules/services/printer.nix
-      ../../modules/services/ollama.nix   #local LLM deployment
+      #../../modules/services/ollama.nix   #local LLM deployment
+      #../../modules/services/samba.nix
 
     #programs:
       ../../modules/programs/ausweisapp.nix
-      ../../modules/programs/coolercontrol.nix
+      #../../modules/programs/coolercontrol.nix
       ../../modules/programs/kde.nix
+      ../../modules/programs/handbrake.nix
 
     #gaming:
     ../../modules/gaming
@@ -58,29 +60,7 @@
     enableIPv6 = false;
   };
 
-services.samba = {
-  enable = true;
-  openFirewall = true;
 
-  settings = {
-    global = {
-      workgroup = "WORKGROUP";
-      security = "user";
-      "map to guest" = "Bad User";
-    };
-  };
-
-  shares = {
-    media = {
-      path = "/srv/media";
-      browseable = "yes";
-      "read only" = "no";
-      "guest ok" = "yes";
-      "create mask" = "0644";
-      "directory mask" = "0755";
-    };
-  };
-};
   /*
   services.create_ap = {
     enable = true;

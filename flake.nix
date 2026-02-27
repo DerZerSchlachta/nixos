@@ -58,7 +58,8 @@
           });
         })
         */
-        (inputs: final: prev: {
+        
+        (final: prev: {
           handbrake = prev.symlinkJoin {
             name = "handbrake-nvidia-wrapped";
             paths = [ prev.handbrake ];
@@ -74,6 +75,7 @@
             '';
           };
         })
+        
       ];
     in
     {
