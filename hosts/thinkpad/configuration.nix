@@ -61,6 +61,16 @@
 
   systemd.network.wait-online.enable = false; #could be problematic, but kinda delays boot a bit
 
+hardware.opengl = {
+  enable = true;
+  driSupport = true;
+  packages = with pkgs; [
+    mesa
+    vulkan-drivers
+    vulkan-validationlayers
+  ];
+};
+
   services = {
     flatpak.enable = true; # installing (non-declarative) packages through flatpak / flathub
     udisks2.enable = true;
@@ -76,6 +86,8 @@
   environment.systemPackages = with pkgs; [
     moonlight-qt #game streaming client for sunshine
     android-tools
+vulkan-tools
+    vulkan-validationlayers
   ];
 
   # This value determines the NixOS release from which the default

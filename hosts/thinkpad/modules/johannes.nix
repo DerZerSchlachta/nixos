@@ -41,7 +41,9 @@
         # Music
         feishin
         streamrip
+        #lmms:
         lmms
+        freepats
 
         firefox
       ])

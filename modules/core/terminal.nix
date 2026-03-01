@@ -12,7 +12,7 @@
 
   environment.systemPackages = with pkgs; [
     nil # nix language server
-    nixfmt-rfc-style  # nix file formatting
+    nixfmt  # nix file formatting
 
     #most important terminal-utilities:
     curl
