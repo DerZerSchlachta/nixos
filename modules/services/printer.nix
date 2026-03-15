@@ -34,6 +34,25 @@
     enable = true;
     drivers = [
       pkgs.hplip
+      pkgs.mfcj470dwlpr
+      pkgs.mfcj470dw-cupswrapper
     ];
+    # allow network access
+    listenAddresses = [ "*:631" ];
+    browsing = true;
+    openFirewall = true;
+    allowFrom = [ "all" ];
+    defaultShared = true;
+  };
+
+
+  # discovery via mDNS/Avahi (lets other devices auto-find printers)
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    publish = {
+      enable = true;
+      userServices = true;
+    };
   };
 }

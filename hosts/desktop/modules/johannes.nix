@@ -1,5 +1,20 @@
-{ config, pkgs, ... }:
+{ config, pkgs, stablePkgs, ... }:
 
+let
+  orcaSlicerWrapped = pkgs.symlinkJoin {
+    name = "orca-slicer";
+    paths = [ pkgs.orca-slicer ];
+    buildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/orca-slicer \
+        --set __GLX_VENDOR_LIBRARY_NAME mesa \
+        --set __EGL_VENDOR_LIBRARY_FILENAMES /run/opengl-driver/share/glvnd/egl_vendor.d/50_mesa.json \
+        --set MESA_LOADER_DRIVER_OVERRIDE zink \
+        --set GALLIUM_DRIVER zink \
+        --set WEBKIT_DISABLE_DMABUF_RENDERER 1
+    '';
+  };
+in
 {
   users.users.johannes = {
     isNormalUser = true;
@@ -19,37 +34,40 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB/Tm8pI7kyVJg6bHE3Byop5ty9pRa0QnQqhQEUCdaKp johannes@thinkpad"
     ];
-    
+
     shell = pkgs.nushell;
 
-    #All Programs / Tools for this User:
-    packages = with pkgs; [
-      #Communication:
-      thunderbird
-      discord
-      telegram-desktop
-      signal-desktop
+    packages =
+      (with pkgs; [
+        # Communication
+        thunderbird
+        discord
+        telegram-desktop
+        signal-desktop
 
-      #Command-line tools:
-      freerdp # Remote Desktop Client for the Console
+        # CLI
+        freerdp
 
-      #Productivity:
-      vscode.fhs # Visual Studio Code
-      libreoffice
-      freecad
+        # Productivity
+        vscode.fhs
+        libreoffice
 
-      #Creativity:
-      inkscape # Opensource SVG creator
-      gimp3 # Opensource Photo editor
+        # Creativity
+        inkscape
+        gimp3
+        orcaSlicerWrapped
+        freecad
 
-      #librewolf # Privacy-focused FireFox Fork -> better Browser
-      firefox
+        firefox
 
-      feishin
-      aonsoku
-      streamrip
-      mkvtoolnix
-    ];
+        feishin
+        aonsoku
+        streamrip
+        mkvtoolnix
+      ])
+      ++
+      (with stablePkgs; [
+      ]);
   };
 
   users.defaultUserShell = pkgs.nushell;

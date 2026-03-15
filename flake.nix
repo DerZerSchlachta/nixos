@@ -81,9 +81,14 @@
     {
       nixosConfigurations = {
         desktop-jo = nixpkgs.lib.nixosSystem rec {
-          specialArgs = {
+           specialArgs = {
             inherit inputs;
-            nixFlakes = inputs.nix-flakes;
+            nixFlakes = inputs.nix-flakes;#
+            
+            stablePkgs = import inputs.nixpkgs-stable {
+              inherit system;
+              config.allowUnfree = true;
+            };
           };
 
           system = "x86_64-linux";

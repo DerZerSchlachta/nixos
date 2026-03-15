@@ -72,14 +72,20 @@
     };
   };
   */
+  
   services = {
     flatpak.enable = true; # installing (non-declarative) packages through flatpak / flathub
     udisks2.enable = true;
-    displayManager = {
-      autoLogin.enable = true;
-      autoLogin.user = "johannes";
-    };
   };
+    services.displayManager = {
+        enable = true;
+        autoLogin = {
+          enable = true;
+          user = "johannes";
+        };
+
+      defaultSession = "plasma";
+    };
   
   programs = {
     droidcam.enable = true;

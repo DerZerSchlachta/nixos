@@ -23,7 +23,7 @@
     steam-run
 
     winetricks
-    wineWowPackages.waylandFull
+    wineWow64Packages.waylandFull
 
     mangohud # displaying performance stats through an ingame-overlay
 
