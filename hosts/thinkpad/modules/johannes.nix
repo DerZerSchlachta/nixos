@@ -27,33 +27,36 @@
       (with pkgs; [
         # CLI
         freerdp
+
         discord
-        
-        # Productivity
+  
+        freecad
         vscode.fhs
 
-        # Creativity
-        inkscape
-        gimp3
-
-        # Music
         feishin
-        streamrip
-        #lmms:
-        lmms
-
+        
         firefox
       ])
       ++
       (with stablePkgs; [
-        # Communication
-        thunderbird
 
-        libreoffice
-        freecad
+        # Music:
+        #streamrip
+        #lmms
         
+
+        # Productivity
+        
+        #libreoffice
+
+        # Creativity
+        #inkscape
+        gimp3
+
+        thunderbird
         telegram-desktop
         signal-desktop
+
       ]);
   };
 

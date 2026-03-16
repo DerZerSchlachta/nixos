@@ -33,7 +33,7 @@ programs.plasma.panels = [
               "applications:discord.desktop"
               "applications:steam.desktop"
               "applications:thunderbird.desktop"
-              "applications:org.freecad.desktop"
+              "applications:org.freecad.FreeCAD.desktop"
             ];
           };
         }
