@@ -39,7 +39,7 @@
       ./modules/display.nix
       
     #services:
-      ../../modules/services/spicetify.nix  #spicetify spotify-client
+      #../../modules/services/spicetify.nix  #spicetify spotify-client
       ../../modules/services/jellyfin
       ../../modules/services/printer.nix
 
@@ -57,19 +57,9 @@
     hostName = "thinkpad-jo";
   };
 
-  virtualisation.docker.enable = true;
+  #virtualisation.docker.enable = true;
 
   systemd.network.wait-online.enable = false; #could be problematic, but kinda delays boot a bit
-
-hardware.opengl = {
-  enable = true;
-  driSupport = true;
-  packages = with pkgs; [
-    mesa
-    vulkan-drivers
-    vulkan-validationlayers
-  ];
-};
 
   services = {
     flatpak.enable = true; # installing (non-declarative) packages through flatpak / flathub
@@ -85,9 +75,7 @@ hardware.opengl = {
   # List packages installed in system profile:
   environment.systemPackages = with pkgs; [
     moonlight-qt #game streaming client for sunshine
-    android-tools
-vulkan-tools
-    vulkan-validationlayers
+    #android-tools
   ];
 
   # This value determines the NixOS release from which the default

@@ -31,8 +31,6 @@
         
         # Productivity
         vscode.fhs
-        libreoffice
-        freecad
 
         # Creativity
         inkscape
@@ -43,7 +41,6 @@
         streamrip
         #lmms:
         lmms
-        freepats
 
         firefox
       ])
@@ -51,12 +48,12 @@
       (with stablePkgs; [
         # Communication
         thunderbird
+
+        libreoffice
+        freecad
         
         telegram-desktop
         signal-desktop
-
-        # Privacy-focused web browser
-        librewolf
       ]);
   };
 
