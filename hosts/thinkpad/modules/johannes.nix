@@ -33,8 +33,6 @@
         freecad
         vscode.fhs
 
-        feishin
-        
         firefox
       ])
       ++
@@ -43,7 +41,7 @@
         # Music:
         #streamrip
         #lmms
-        
+        feishin
 
         # Productivity
         

@@ -76,7 +76,17 @@
   environment.systemPackages = with pkgs; [
     moonlight-qt #game streaming client for sunshine
     #android-tools
+    rclone
+    libation
   ];
+
+systemd.user.services.copyparty-mount = {
+  description = "Mount Copyparty volume";
+  serviceConfig.ExecStart = "${pkgs.rclone}/bin/rclone mount personal-cloud: /home/johannes/personal-cloud --vfs-cache-mode full";
+  serviceConfig.Restart = "always";
+  wantedBy = [ "default.target" ];
+};
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
