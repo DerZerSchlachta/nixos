@@ -80,10 +80,22 @@
     libation
   ];
 
-systemd.user.services.copyparty-mount = {
-  description = "Mount Copyparty volume";
-  serviceConfig.ExecStart = "${pkgs.rclone}/bin/rclone mount personal-cloud: /home/johannes/personal-cloud --vfs-cache-mode full";
-  serviceConfig.Restart = "always";
+  systemd.user.services.copyparty-sync = {
+    description = "Sync Copyparty folder locally";
+    serviceConfig = {
+      ExecStart = "${pkgs.rclone}/bin/rclone bisync personal-cloud: /home/johannes/personal-cloud";
+    };
+  };
+
+  systemd.user.services.mediaserver-mount = {
+  description = "Mount mediaserver via rclone";
+  serviceConfig = {
+    ExecStart = "${pkgs.rclone}/bin/rclone mount mediaserver: /home/johannes/mediaserver \
+      --vfs-cache-mode writes \
+      --buffer-size 64M \
+      --dir-cache-time 1h";
+    Restart = "always";
+  };
   wantedBy = [ "default.target" ];
 };
 
