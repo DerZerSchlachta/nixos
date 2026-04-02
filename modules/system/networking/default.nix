@@ -16,5 +16,11 @@
     nameservers = [ ];
     enableIPv6 = false;
   };
+
+  networking.nat = {
+  enable = true;
+  externalInterface = "eno1";
+  internalInterfaces = [ "wlp7s0" ];
+};
   services.resolved.enable = true;
 }

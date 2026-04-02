@@ -15,8 +15,13 @@
     allowedUDPPortRanges = [
       { from = 1714; to = 1764; }
     ];
+    allowedUDPPorts = [ 
+      1900
+      53   # DNS
+      67   # DHCP server
+      68   # DHCP client
+    ];
 
-    allowedUDPPorts = [ 1900 ];
     allowedTCPPorts = [ 49152 49153 49154 49155 49156 ];
 
     extraCommands = ''

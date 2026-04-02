@@ -6,7 +6,7 @@
     #nixpkgs_desktop.url = "github:nixos/nixpkgs/048597ae8f390af6aedd0ffd08878aaf32f9a210";
     #nixpkgs.url = "github:nixos/nixpkgs/601a1d80f1921210569ef3cdf96309ddac8539ed";
 
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -19,7 +19,7 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    nix-flakes.url = "github:valenbar/nix-flakes";
+    nix-flakes.url = "github:DerZerSchlachta/nix-flakes";
 
     nix-flakes.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -98,8 +98,16 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                nixFlakes = inputs.nix-flakes;
+              };
+
               home-manager.users.johannes = ./hosts/desktop/home.nix;
+
               home-manager.backupFileExtension = "backup";
+
               home-manager.sharedModules = [
                 plasma-manager.homeModules.plasma-manager
               ];

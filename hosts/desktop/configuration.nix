@@ -32,6 +32,7 @@
       ../../modules/services/printer.nix
       #../../modules/services/ollama.nix   #local LLM deployment
       #../../modules/services/samba.nix
+      #../../modules/services/deej.nix
 
     #programs:
       ../../modules/programs/ausweisapp.nix
@@ -59,7 +60,6 @@
     interfaces.eno1.wakeOnLan.enable = true;
     enableIPv6 = false;
   };
-
 
   /*
   services.create_ap = {
@@ -94,7 +94,8 @@
   # List packages installed in system profile:
   environment.systemPackages = with pkgs; [
     efibootmgr
-
+    pmbootstrap # tool to create and manage postmarketOS installations on mobile devices
+    android-tools
     usbutils # needed for usb / serial management
     arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
     #nixFlakes.packages.x86_64-linux.deej  #Small Programm to read and Apply Inputs from arduino-audio controllers, based on the "deej" system

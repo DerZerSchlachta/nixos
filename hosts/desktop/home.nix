@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, nixFlakes, ... }:
 {
   home.username = "johannes";
   home.homeDirectory = "/home/johannes";
@@ -13,6 +13,12 @@
     ../../modules/home-manager/nushell.nix
     ../../modules/home-manager/kdeconnect.nix
     ../../modules/home-manager/nix-search-tv.nix
+    ../../modules/home-manager/deej.nix
     ./modules/home-manager/plasma.nix
   ];
+
+  services.deej = {
+    enable = true;
+    serialPort = "/dev/ttyUSB0";
+  };
 }
