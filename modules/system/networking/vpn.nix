@@ -15,22 +15,4 @@
     openvpn
     networkmanagerapplet
   ];
-  /*
-  services.openvpn.servers = {
-    /*
-    officeVPN = {
-      config = ''config ../../../../openvpn/Amsterdam.conf '';
-      updateResolvConf = true;
-    };
-
-    homeVPN = {
-      config = ''config ../../../openvpn/Amsterdam.conf '';
-      updateResolvConf = true;
-    };
-    serverVPN = {
-      config = ''config ../../../../../openvpn/Amsterdam.conf '';
-      updateResolvConf = true;
-    };
-  };
-  */
 }
