@@ -3,8 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    #nixpkgs_desktop.url = "github:nixos/nixpkgs/048597ae8f390af6aedd0ffd08878aaf32f9a210";
-    #nixpkgs.url = "github:nixos/nixpkgs/601a1d80f1921210569ef3cdf96309ddac8539ed";
 
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
 
@@ -18,11 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-
-
-    refind-nix.url = "github:DerZerSchlachta/refind-nix"; # a nixos compatible version of rEFInd Bootmanager, aka. the nicest looking bootmanager
-
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -40,7 +33,6 @@
       nixpkgs-stable,
       home-manager,
       plasma-manager,
-      refind-nix,
       nixos-hardware,
       deej,
       ...
@@ -84,7 +76,6 @@
         desktop-jo = nixpkgs.lib.nixosSystem rec {
            specialArgs = {
             inherit inputs;
-            nixFlakes = inputs.nix-flakes;#
 
             stablePkgs = import inputs.nixpkgs-stable {
               inherit system;
@@ -102,7 +93,6 @@
 
               home-manager.extraSpecialArgs = {
                 inherit inputs;
-                nixFlakes = inputs.nix-flakes;
               };
 
               home-manager.users.johannes = ./hosts/desktop/home.nix;
@@ -121,7 +111,6 @@
         thinkpad-jo = nixpkgs.lib.nixosSystem rec {
           specialArgs = {
             inherit inputs;
-            nixFlakes = inputs.nix-flakes;#
 
             stablePkgs = import inputs.nixpkgs-stable {
               inherit system;
@@ -153,7 +142,6 @@
         server = nixpkgs.lib.nixosSystem rec {
           specialArgs = {
             inherit inputs;
-            nixFlakes = inputs.nix-flakes;
           };
 
           system = "x86_64-linux";
