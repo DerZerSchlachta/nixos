@@ -16,9 +16,4 @@
     ../../modules/home-manager/deej.nix
     ./modules/home-manager/plasma.nix
   ];
-
-  services.deej = {
-    enable = true;
-    serialPort = "/dev/ttyUSB0";
-  };
 }

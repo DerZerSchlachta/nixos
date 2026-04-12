@@ -9,6 +9,8 @@
   programs = {
     steam = {
       enable = true;
+      package = pkgs.steam;
+
       extraPackages = with pkgs; [
         mangohud
         gamemode

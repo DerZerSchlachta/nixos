@@ -19,9 +19,6 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    nix-flakes.url = "github:DerZerSchlachta/nix-flakes";
-
-    nix-flakes.inputs.nixpkgs.follows = "nixpkgs";
 
     refind-nix.url = "github:DerZerSchlachta/refind-nix"; # a nixos compatible version of rEFInd Bootmanager, aka. the nicest looking bootmanager
 
@@ -30,6 +27,8 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nixpkgs-jellyfin-media-player.url = "github:nixos/nixpkgs/648f70160c03151bc2121d179291337ad6bc564b";
+
+    deej.url = "github:DerZerSchlachta/deej-linux";
 
     #plasma-manager.url = "github:nix-community/plasma-manager";
   };
@@ -41,9 +40,9 @@
       nixpkgs-stable,
       home-manager,
       plasma-manager,
-      nix-flakes,
       refind-nix,
       nixos-hardware,
+      deej,
       ...
     }@inputs:
     let
@@ -58,7 +57,7 @@
           });
         })
         */
-        
+
         (final: prev: {
           handbrake = prev.symlinkJoin {
             name = "handbrake-nvidia-wrapped";
@@ -75,7 +74,9 @@
             '';
           };
         })
-        
+
+        inputs.deej.overlays.default
+
       ];
     in
     {
@@ -84,7 +85,7 @@
            specialArgs = {
             inherit inputs;
             nixFlakes = inputs.nix-flakes;#
-            
+
             stablePkgs = import inputs.nixpkgs-stable {
               inherit system;
               config.allowUnfree = true;
@@ -110,6 +111,7 @@
 
               home-manager.sharedModules = [
                 plasma-manager.homeModules.plasma-manager
+                inputs.deej.home-managerModules.default
               ];
             }
             { nixpkgs.overlays = overlays; }
@@ -120,7 +122,7 @@
           specialArgs = {
             inherit inputs;
             nixFlakes = inputs.nix-flakes;#
-            
+
             stablePkgs = import inputs.nixpkgs-stable {
               inherit system;
               config.allowUnfree = true;
@@ -141,6 +143,7 @@
               home-manager.backupFileExtension = "backup";
               home-manager.sharedModules = [
                 plasma-manager.homeModules.plasma-manager
+                inputs.deej.home-managerModules.default
               ];
             }
             { nixpkgs.overlays = overlays; }

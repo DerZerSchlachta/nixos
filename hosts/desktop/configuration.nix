@@ -77,14 +77,9 @@
     flatpak.enable = true; # installing (non-declarative) packages through flatpak / flathub
     udisks2.enable = true;
   };
-    services.displayManager = {
-        enable = true;
-        autoLogin = {
-          enable = true;
-          user = "johannes";
-        };
-
-      defaultSession = "plasma";
+    services.displayManager.autoLogin = {
+      enable = true;
+      user = "johannes";
     };
   
   programs = {

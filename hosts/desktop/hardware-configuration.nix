@@ -40,7 +40,17 @@
     ];
   };
 
-  swapDevices = lib.mkForce [ ];
+  zramSwap = {
+    enable = true;
+    memoryPercent = 50;
+  };
+
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 16 * 1024;
+    }
+  ];
   /*
   # Swapfile configuration
   swapDevices = [

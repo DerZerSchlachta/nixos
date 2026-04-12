@@ -11,7 +11,7 @@
   ];
 
   programs.plasma = {
-    enable = true;
+    enable = true; 
     overrideConfig = true;
 
     hotkeys.commands."launch-konsole" = {
@@ -19,5 +19,18 @@
       key = "Meta+Alt+K";
       command = "konsole";
     };
+
+    hotkeys.commands."launch-kwrite" = {
+      name = "Launch KWrite";
+      key = "Meta+Alt+W";
+      command = "kwrite";
+    };
+
+    hotkeys.commands."launch-Nix-Config" = {
+      name = "Launch Nix Config";
+      key = "Meta+Alt+N";
+      command = "code /home/johannes/nixos/";
+    };
+
   };
 }
