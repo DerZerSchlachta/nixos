@@ -12,7 +12,7 @@ in
   virtualisation.docker.enable = true;
 
   # On the ThinkPad (laptop): do NOT autostart Docker
-  systemd.services.docker.wantedBy = lib.mkIf isLaptop (lib.mkForce [ ]);
+  #systemd.services.docker.wantedBy = lib.mkIf isLaptop (lib.mkForce [ ]);
 
   # You can keep these generic
   systemd.services.docker.after = [ "network.target" ];
@@ -28,8 +28,8 @@ in
   #### VMware: host only where it makes sense
 
   # Maybe only on desktop:
-  virtualisation.vmware.host.enable = lib.mkIf (!isServer) true;
+  virtualisation.vmware.host.enable = lib.mkIf (isDesktop) true;
 
   # Guest tools: maybe only on desktop + laptop, not server:
-  virtualisation.vmware.guest.enable = lib.mkIf (!isServer) true;
+  virtualisation.vmware.guest.enable = lib.mkIf (isDesktop) true;
 }

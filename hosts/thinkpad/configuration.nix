@@ -35,14 +35,14 @@
       ../../modules/system/audio.nix
       ../../modules/system/networking
       ../../modules/system/bluetooth.nix
-      #../../modules/system/virtualisation.nix
+      ../../modules/system/virtualisation.nix
       ./modules/display.nix
       
     #services:
       #../../modules/services/spicetify.nix  #spicetify spotify-client
       ../../modules/services/jellyfin
       ../../modules/services/printer.nix
-
+      ../../modules/services/syncthing.nix
     #programs:
       ../../modules/programs/ausweisapp.nix
       ../../modules/programs/kde.nix
@@ -58,6 +58,8 @@
   };
 
   #virtualisation.docker.enable = true;
+
+  networking.firewall.allowedTCPPorts = [ 8000 ]; #for fintsLedgerimporter
 
   systemd.network.wait-online.enable = false; #could be problematic, but kinda delays boot a bit
 
@@ -80,24 +82,14 @@
     libation
   ];
 
-  systemd.user.services.copyparty-sync = {
-    description = "Sync Copyparty folder locally";
+    systemd.user.services.mediaserver-mount = {
+    description = "Mount mediaserver via rclone";
     serviceConfig = {
-      ExecStart = "${pkgs.rclone}/bin/rclone bisync personal-cloud: /home/johannes/personal-cloud";
+      ExecStart = "${pkgs.rclone}/bin/rclone mount mediaserver: /home/johannes/mediaserver --vfs-cache-mode writes --buffer-size 64M --dir-cache-time 1h";
+      Restart = "always";
     };
+    wantedBy = [ "default.target" ];
   };
-
-  systemd.user.services.mediaserver-mount = {
-  description = "Mount mediaserver via rclone";
-  serviceConfig = {
-    ExecStart = "${pkgs.rclone}/bin/rclone mount mediaserver: /home/johannes/mediaserver \
-      --vfs-cache-mode writes \
-      --buffer-size 64M \
-      --dir-cache-time 1h";
-    Restart = "always";
-  };
-  wantedBy = [ "default.target" ];
-};
 
 
   # This value determines the NixOS release from which the default

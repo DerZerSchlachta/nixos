@@ -27,6 +27,7 @@
       (with pkgs; [
         # CLI
         freerdp
+        feishin
 
         discord
   
@@ -34,6 +35,12 @@
         vscode.fhs
 
         firefox
+
+        thunderbird
+        telegram-desktop
+        signal-desktop
+
+        androidStudioPackages.dev
       ])
       ++
       (with stablePkgs; [
@@ -41,7 +48,6 @@
         # Music:
         #streamrip
         #lmms
-        feishin
 
         # Productivity
         
@@ -50,11 +56,6 @@
         # Creativity
         #inkscape
         gimp3
-
-        thunderbird
-        telegram-desktop
-        signal-desktop
-
       ]);
   };
 
