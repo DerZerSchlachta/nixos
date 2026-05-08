@@ -67,6 +67,8 @@ in
         aonsoku
         streamrip
         mkvtoolnix
+        makemkv
+        vlc
       ])
       ++
       (with stablePkgs; [

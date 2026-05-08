@@ -32,5 +32,10 @@
       command = "code /home/johannes/nixos/";
     };
 
+    hotkeys.commands."launch-firefox" = {
+      name = "Launch Firefox";
+      key = "Meta+Alt+F";
+      command = "firefox";
+    };
   };
 }

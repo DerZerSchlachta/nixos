@@ -49,7 +49,7 @@
 
         nixos-server = {
           user = "admin";
-          extraHMModules = [ ]; # no plasma/deej
+          extraHMModules = [ ];
         };
       };
 

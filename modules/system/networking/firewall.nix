@@ -24,7 +24,7 @@
       59200
     ];
 
-    allowedTCPPorts = [ 49152 49153 49154 49155 49156 59100 ];
+    allowedTCPPorts = [ 49152 49153 49154 49155 49156 59100 8000];
 
     extraCommands = ''
       # SSDP multicast
