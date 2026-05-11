@@ -12,7 +12,7 @@ in
   virtualisation.docker.enable = true;
 
   # On the ThinkPad (laptop): do NOT autostart Docker
-  systemd.services.docker.wantedBy = lib.mkIf isLaptop (lib.mkForce [ ]);
+  #systemd.services.docker.wantedBy = lib.mkIf isLaptop (lib.mkForce [ ]);
 
   # You can keep these generic
   systemd.services.docker.after = [ "network.target" ];

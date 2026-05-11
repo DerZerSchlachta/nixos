@@ -57,7 +57,7 @@
     hostName = "thinkpad-jo";
   };
 
-  #virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   systemd.network.wait-online.enable = false; #could be problematic, but kinda delays boot a bit
 
@@ -75,9 +75,12 @@
   # List packages installed in system profile:
   environment.systemPackages = with pkgs; [
     moonlight-qt #game streaming client for sunshine
-    #android-tools
+    android-tools
+    usbutils # needed for usb / serial management
+    arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
     rclone
     libation
+    python3
   ];
 
   systemd.user.services.copyparty-sync = {
@@ -97,6 +100,15 @@
     Restart = "always";
   };
   wantedBy = [ "default.target" ];
+};
+
+boot.kernel.sysctl = {
+  "net.ipv6.conf.all.disable_ipv6" = 1;
+  "net.ipv6.conf.default.disable_ipv6" = 1;
+
+  # 👇 THIS is the key line you're missing
+  "net.ipv6.conf.all.accept_ra" = 0;
+  "net.ipv6.conf.default.accept_ra" = 0;
 };
 
 
