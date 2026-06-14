@@ -35,6 +35,10 @@
         desktop-jo = {
           user = "johannes";
         };
+	
+        desktop-hannover = {
+          user = "johannes";
+        };
 
         thinkpad-jo = {
           user = "johannes";

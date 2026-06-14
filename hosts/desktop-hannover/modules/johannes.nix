@@ -33,8 +33,7 @@ in
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB/Tm8pI7kyVJg6bHE3Byop5ty9pRa0QnQqhQEUCdaKp johannes@thinkpad"
-      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCn/ac/j3TgmweX32o8GbGf7/5gG4gYdhtBnZcFUU6C2acVmzwfto+8a++qXUcXWcPXIA1UMbMfOrEI6ECWswOxQHpZayEWWc+YzXrXzlLgUnLTMUBUsggWmF62zibdlBvArzBsg4hjRX67WrQLvF6PrfJeiqpGxGsZdKQWYWtrZJHJlAwO55GK6PliAVoS9ZfZMiPxrOKm2MAx38syKo0hO5MPPxM2CMqH+50VMp60nKqx0OZEcpndtEOL6vTP2mpdUv5j4lwSRkmeE2WAgTqtW2+kSVrCqfDICE5X+5tKkvL7O5kdOgl4Uv2zFyUnjNYiYEtub9SCdCkGTKg2I0GZ Nothing Phone SSH Key"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK0I6oH+o1AubOp3QrtwCTVvk20FbNctgkZjET5ThivS johannes@desktop-hannover"
+     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCn/ac/j3TgmweX32o8GbGf7/5gG4gYdhtBnZcFUU6C2acVmzwfto+8a++qXUcXWcPXIA1UMbMfOrEI6ECWswOxQHpZayEWWc+YzXrXzlLgUnLTMUBUsggWmF62zibdlBvArzBsg4hjRX67WrQLvF6PrfJeiqpGxGsZdKQWYWtrZJHJlAwO55GK6PliAVoS9ZfZMiPxrOKm2MAx38syKo0hO5MPPxM2CMqH+50VMp60nKqx0OZEcpndtEOL6vTP2mpdUv5j4lwSRkmeE2WAgTqtW2+kSVrCqfDICE5X+5tKkvL7O5kdOgl4Uv2zFyUnjNYiYEtub9SCdCkGTKg2I0GZ Nothing Phone SSH Key"
     ];
 
     shell = pkgs.nushell;
