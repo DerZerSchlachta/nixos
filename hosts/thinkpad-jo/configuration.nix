@@ -40,7 +40,7 @@
       
     #services:
       #../../modules/services/spicetify.nix  #spicetify spotify-client
-      ../../modules/services/jellyfin
+      #../../modules/services/jellyfin
       ../../modules/services/printer.nix
 
     #programs:
@@ -57,7 +57,7 @@
     hostName = "thinkpad-jo";
   };
 
-  virtualisation.docker.enable = true;
+  #virtualisation.docker.enable = true;
 
   systemd.network.wait-online.enable = false; #could be problematic, but kinda delays boot a bit
 
@@ -65,23 +65,6 @@
     flatpak.enable = true; # installing (non-declarative) packages through flatpak / flathub
     udisks2.enable = true;
   };
-
-
-  programs = {
-    droidcam.enable = true;
-  };
-
-
-  # List packages installed in system profile:
-  environment.systemPackages = with pkgs; [
-    moonlight-qt #game streaming client for sunshine
-    android-tools
-    usbutils # needed for usb / serial management
-    arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
-    rclone
-    libation
-    python3
-  ];
 
   systemd.user.services.copyparty-sync = {
     description = "Sync Copyparty folder locally";
@@ -91,25 +74,31 @@
   };
 
   systemd.user.services.mediaserver-mount = {
-  description = "Mount mediaserver via rclone";
-  serviceConfig = {
-    ExecStart = "${pkgs.rclone}/bin/rclone mount mediaserver: /home/johannes/mediaserver \
-      --vfs-cache-mode writes \
-      --buffer-size 64M \
-      --dir-cache-time 1h";
-    Restart = "always";
+    description = "Mount mediaserver via rclone";
+    serviceConfig = {
+      ExecStart = "${pkgs.rclone}/bin/rclone mount mediaserver: /home/johannes/mediaserver \
+        --vfs-cache-mode writes \
+        --buffer-size 64M \
+        --dir-cache-time 1h";
+      Restart = "always";
+    };
+    wantedBy = [ "default.target" ];
   };
-  wantedBy = [ "default.target" ];
-};
 
-boot.kernel.sysctl = {
-  "net.ipv6.conf.all.disable_ipv6" = 1;
-  "net.ipv6.conf.default.disable_ipv6" = 1;
+  boot.kernel.sysctl = {
+    "net.ipv6.conf.all.disable_ipv6" = 1;
+    "net.ipv6.conf.default.disable_ipv6" = 1;
 
-  # 👇 THIS is the key line you're missing
-  "net.ipv6.conf.all.accept_ra" = 0;
-  "net.ipv6.conf.default.accept_ra" = 0;
-};
+    # 👇 THIS is the key line you're missing
+    "net.ipv6.conf.all.accept_ra" = 0;
+    "net.ipv6.conf.default.accept_ra" = 0;
+  };
+
+  hardware.amdgpu = {
+    initrd.enable = true;
+    overdrive.enable = true;
+  };
+  services.lact.enable = true;
 
 
   # This value determines the NixOS release from which the default

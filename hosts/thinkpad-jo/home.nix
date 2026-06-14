@@ -7,9 +7,9 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ../../modules/home-manager/yazi.nix
+    #../../modules/home-manager/yazi.nix
     ../../modules/home-manager/btop.nix
-    ../../modules/home-manager/mpv.nix
+    #../../modules/home-manager/mpv.nix
     ../../modules/home-manager/nushell.nix
     ../../modules/home-manager/kdeconnect.nix
     ../../modules/home-manager/nix-search-tv.nix
