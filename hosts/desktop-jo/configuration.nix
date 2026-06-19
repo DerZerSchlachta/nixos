@@ -39,6 +39,7 @@
       #../../modules/programs/coolercontrol.nix
       ../../modules/programs/kde.nix
       ../../modules/programs/handbrake.nix
+      ../../modules/programs/freecad.nix
 
     #gaming:
     ../../modules/gaming
@@ -59,6 +60,15 @@
     hostName = "desktop-jo";
     interfaces.eno1.wakeOnLan.enable = true;
     enableIPv6 = false;
+  };
+
+  services.prowlarr = {
+    enable = true;
+    openFirewall = true;
+  };
+  services.flaresolverr = {
+    enable = true;
+    openFirewall = true;
   };
 
 
@@ -95,6 +105,9 @@
     usbutils # needed for usb / serial management
     #arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
     #nixFlakes.packages.x86_64-linux.deej  #Small Programm to read and Apply Inputs from arduino-audio controllers, based on the "deej" system
+    python314
+    python314Packages.pip
+    python314Packages.pypresence
   ];
 
 

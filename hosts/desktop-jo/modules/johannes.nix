@@ -59,7 +59,6 @@ in
         gimp3
         #orcaSlicerWrapped
         orca-slicer
-        stablePkgs.freecad
 
         firefox
 

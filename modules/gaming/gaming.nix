@@ -31,6 +31,6 @@
     mangohud # displaying performance stats through an ingame-overlay
 
     #stablePkgs.lutris # game launcher, should be able to launch most windows games using wine
-    #heroic # epic games launcher for linux
+    heroic # epic games launcher for linux
   ];
 }
