@@ -60,6 +60,18 @@
     enableIPv6 = false;
   };
 
+  services = {
+    prowlarr = {
+      enable = true;
+      openFirewall = true;
+    };
+    flaresolverr = {
+      enable = true;
+      openFirewall = true;
+    };
+};
+
+
   /*
   services.create_ap = {
     enable = true;
