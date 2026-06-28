@@ -110,6 +110,37 @@
     python314Packages.pypresence
   ];
 
+  fileSystems."/mnt/Johannes" = {
+    device = "192.168.178.202:/mnt/user/Johannes";
+    fsType = "nfs";
+    options = [
+      "x-systemd.automount"
+      "x-systemd.requires=network-online.target"
+      "x-systemd.after=network-online.target"
+      "nofail"
+    ];
+  };
+  fileSystems."/mnt/media" = {
+    device = "192.168.178.202:/mnt/user/Media";
+    fsType = "nfs";
+    options = [
+      "x-systemd.automount"
+      "x-systemd.requires=network-online.target"
+      "x-systemd.after=network-online.target"
+      "nofail"
+    ];
+  };
+    fileSystems."/mnt/paperless-scans" = {
+    device = "192.168.178.202:/mnt/user/paperless-scans";
+    fsType = "nfs";
+    options = [
+      "x-systemd.automount"
+      "x-systemd.requires=network-online.target"
+      "x-systemd.after=network-online.target"
+      "nofail"
+    ];
+  };
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
