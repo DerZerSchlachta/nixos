@@ -41,6 +41,7 @@ in
 
     packages =
       (with pkgs; [
+        libxcb-cursor
         # Communication
         thunderbird
         discord
@@ -57,8 +58,8 @@ in
         # Creativity
         inkscape
         gimp3
-        #orcaSlicerWrapped
-        orca-slicer
+        orcaSlicerWrapped
+        #orca-slicer
 
         firefox
 

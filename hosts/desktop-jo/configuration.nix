@@ -33,6 +33,7 @@
       #../../modules/services/ollama.nix   #local LLM deployment
       #../../modules/services/samba.nix
       #../../modules/services/deej.nix
+      ../../modules/services/syncthing.nix
 
     #programs:
       ../../modules/programs/ausweisapp.nix
@@ -108,7 +109,18 @@
     python314
     python314Packages.pip
     python314Packages.pypresence
+
+    beammp-launcher
+    protontricks
   ];
+  
+services.zerotierone = {
+  enable = true;
+  joinNetworks = [
+    "08752e18b19b596f"
+  ];
+};
+
 
   fileSystems."/mnt/Johannes" = {
     device = "192.168.178.202:/mnt/user/Johannes";
@@ -121,15 +133,15 @@
     ];
   };
   fileSystems."/mnt/media" = {
-    device = "192.168.178.202:/mnt/user/Media";
-    fsType = "nfs";
-    options = [
-      "x-systemd.automount"
-      "x-systemd.requires=network-online.target"
-      "x-systemd.after=network-online.target"
-      "nofail"
-    ];
-  };
+      device = "192.168.178.202:/mnt/user/Media";
+      fsType = "nfs";
+      options = [
+        "x-systemd.automount"
+        "x-systemd.requires=network-online.target"
+        "x-systemd.after=network-online.target"
+        "nofail"
+      ];
+    };
     fileSystems."/mnt/paperless-scans" = {
     device = "192.168.178.202:/mnt/user/paperless-scans";
     fsType = "nfs";
@@ -141,6 +153,7 @@
     ];
   };
 
+  programs.kdeconnect.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
