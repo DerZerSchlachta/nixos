@@ -14,7 +14,7 @@
 
   programs.plasma = {
     enable = true;
-    overrideConfig = true;
+    overrideConfig = false;
 
     hotkeys.commands."launch-konsole" = {
       name = "Launch Konsole";

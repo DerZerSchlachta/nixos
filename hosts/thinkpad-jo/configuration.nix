@@ -35,13 +35,14 @@
       ../../modules/system/audio.nix
       ../../modules/system/networking
       ../../modules/system/bluetooth.nix
-      #../../modules/system/virtualisation.nix
+      ../../modules/system/virtualisation.nix
       ./modules/display.nix
       
     #services:
       #../../modules/services/spicetify.nix  #spicetify spotify-client
       #../../modules/services/jellyfin
       ../../modules/services/printer.nix
+      ../../modules/services/syncthing.nix
 
     #programs:
       ../../modules/programs/ausweisapp.nix
