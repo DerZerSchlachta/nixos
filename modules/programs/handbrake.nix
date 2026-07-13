@@ -1,8 +1,8 @@
 {
-  pkgs, ...
+  pkgs, stablePkgs, ...
 }:
 {
   environment.systemPackages = with pkgs; [
-    handbrake
+    stablePkgs.handbrake
   ];
 }

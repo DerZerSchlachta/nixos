@@ -1,7 +1,6 @@
-{ pkgs, ... }:
-
+{ pkgs, stablePkgs, ... }:
 {
   environment.systemPackages = [
-    pkgs.freecad
+    stablePkgs.freecad
   ];
 }

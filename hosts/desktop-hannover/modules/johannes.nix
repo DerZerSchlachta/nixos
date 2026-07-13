@@ -63,7 +63,7 @@ in
         firefox
 
         feishin
-        aonsoku
+        #aonsoku
         streamrip
         mkvtoolnix
       ])

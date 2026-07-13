@@ -64,10 +64,10 @@ in
         firefox
 
         feishin
-        aonsoku
+        #aonsoku
         streamrip
         mkvtoolnix
-        makemkv
+        #makemkv
         vlc
       ])
       ++
