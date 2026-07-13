@@ -2,12 +2,14 @@
 {
   services.syncthing = {
     enable = true;
-    #group = "mygroupname";
+    group = "users";
     user = "johannes";    
     dataDir = "/home/johannes/Documents";
     configDir = "/home/johannes/.config/syncthing";
     overrideDevices = true;     # overrides any devices added or deleted through the WebUI
     overrideFolders = true;     # overrides any folders added or deleted through the WebUI
+    systemService = true;
+    openDefaultPorts = true;
     settings = {
       devices = {
         "FUJITSU-D3431-A" = { id = "IR4MBCI-VDGR7VV-LAD2EZG-QLNLBKD-SUWWDFJ-LL7RJL6-LADVWJP-T4O4BQD"; };
