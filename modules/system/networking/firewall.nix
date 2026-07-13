@@ -20,9 +20,11 @@
       53   # DNS
       67   # DHCP server
       68   # DHCP client
+      59100 
+      59200
     ];
 
-    allowedTCPPorts = [ 49152 49153 49154 49155 49156 ];
+    allowedTCPPorts = [ 49152 49153 49154 49155 49156 59100 8000];
 
     extraCommands = ''
       # SSDP multicast

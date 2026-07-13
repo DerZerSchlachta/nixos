@@ -7,8 +7,9 @@ programs.plasma.panels = [
       opacity = "translucent";
       height = 44;
       widgets = [ #taskbar widgets from left to right:
+
         "org.kde.plasma.pager"    # virtual desktops
-        "org.kde.plasma.panelspacer"  # spacer
+        #"org.kde.plasma.panelspacer"  # spacer
         {
           kickoff = {   #startmenu
             sortAlphabetically = true;
@@ -36,7 +37,7 @@ programs.plasma.panels = [
             ];
           };
         }
-        "org.kde.plasma.panelspacer"
+        #"org.kde.plasma.panelspacer"
         "org.kde.plasma.marginsseparator"
         {
           systemTray.items = {

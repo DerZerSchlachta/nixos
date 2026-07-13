@@ -13,8 +13,9 @@
   };
 
   security.rtkit.enable = true;
-  /*
+
   services.pipewire.extraConfig.pipewire = {
+    /*
     "99-input-denoising" = {
       "context.modules" = [
         {
@@ -53,6 +54,31 @@
         }
       ];
     };
+    "99-audiorelay-virtual-mic" = {
+        "context.modules" = [
+            # 1. Virtual sink (AudioRelay plays INTO this)
+            {
+            "name" = "libpipewire-module-null-sink";
+            "args" = {
+                "node.name" = "audiorelay-virtual-mic-sink";
+                "node.description" = "AudioRelay Virtual Mic Sink";
+                "media.class" = "Audio/Sink";
+            };
+            }
+
+            # 2. Virtual mic (apps see this as microphone)
+            {
+            "name" = "libpipewire-module-remap-source";
+            "args" = {
+                "node.name" = "audiorelay-virtual-mic";
+                "node.description" = "AudioRelay Virtual Mic";
+                "media.class" = "Audio/Source";
+
+                # THIS is the key link: sink.monitor → mic input
+                "master" = "audiorelay-virtual-mic-sink.monitor";
+            };
+            }
+        ];
+    };*/
   };
-  */
 }
