@@ -14,7 +14,7 @@
     networkmanager.enable = true;
     resolvconf.enable = false;
     nameservers = [ ];
-    enableIPv6 = false;
+    enableIPv6 = true;
   };
 
     networking.nat = {

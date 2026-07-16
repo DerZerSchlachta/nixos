@@ -22,6 +22,7 @@
 
       ../../modules/system/audio.nix
       ../../modules/system/networking
+      ../../modules/system/networking/airvpn.nix
       ../../modules/system/bluetooth.nix
       ../../modules/system/virtualisation.nix
       ../../modules/system/displayManager.nix
@@ -60,7 +61,6 @@
   networking = {
     hostName = "desktop-jo";
     interfaces.eno1.wakeOnLan.enable = true;
-    enableIPv6 = false;
   };
 
   services.prowlarr = {
@@ -112,7 +112,17 @@
 
     beammp-launcher
     protontricks
+    feather #crypto wallet for monero
+    inputs.agenix.packages.x86_64-linux.default
   ];
+
+
+
+  services.tor = {
+    enable = true;
+    openFirewall = true;
+};
+
   
 services.zerotierone = {
   enable = true;

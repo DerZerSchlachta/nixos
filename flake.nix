@@ -19,6 +19,8 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     deej.url = "github:DerZerSchlachta/deej-linux";
+
+    agenix.url = "github:ryantm/agenix";  #secrets management tool
   };
 
   outputs = inputs@{ self, nixpkgs, ... }:
@@ -34,6 +36,9 @@
       hosts = {
         desktop-jo = {
           user = "johannes";
+          extraModules = [
+            inputs.agenix.nixosModules.default
+          ];
         };
 	
         desktop-hannover = {

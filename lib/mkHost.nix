@@ -26,7 +26,6 @@ inputs.nixpkgs.lib.nixosSystem {
   modules =
   [
     ./../hosts/${hostname}/configuration.nix
-
     inputs.home-manager.nixosModules.home-manager
 
     {
