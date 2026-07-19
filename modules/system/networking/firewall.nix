@@ -22,9 +22,10 @@
       68   # DHCP client
       59100 
       59200
+      4444  #BeamMP
     ];
 
-    allowedTCPPorts = [ 49152 49153 49154 49155 49156 59100 8000];
+    allowedTCPPorts = [ 49152 49153 49154 49155 49156 59100 8000 4444 /*BeamMP*/];
 
     extraCommands = ''
       # SSDP multicast
