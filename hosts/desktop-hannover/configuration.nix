@@ -22,7 +22,7 @@
       ./modules/audio.nix
       ../../modules/system/networking
       ../../modules/system/bluetooth.nix
-      #../../modules/system/virtualisation.nix
+      ../../modules/system/virtualisation.nix
       ../../modules/system/displayManager.nix
 
     #services:
@@ -60,6 +60,14 @@
     enableIPv6 = false;
   };
 
+  services.zerotierone = {
+  enable = true;
+  joinNetworks = [
+    "08752e18b19b596f"
+  ];
+};
+
+
   services = {
     prowlarr = {
       enable = true;
@@ -96,7 +104,7 @@
   };
 
   services.lact.enable = true;
-
+  programs.nix-ld.enable = true;
 
   programs = {
     droidcam.enable = true;
@@ -108,6 +116,7 @@
     efibootmgr
     pmbootstrap # tool to create and manage postmarketOS installations on mobile devices
     android-tools
+    protontricks
     usbutils # needed for usb / serial management
     arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
     #nixFlakes.packages.x86_64-linux.deej  #Small Programm to read and Apply Inputs from arduino-audio controllers, based on the "deej" system
