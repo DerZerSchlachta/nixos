@@ -32,6 +32,7 @@
       #../../modules/services/ollama.nix   #local LLM deployment
       #../../modules/services/samba.nix
       #../../modules/services/deej.nix
+      ../../modules/services/syncthing.nix
 
     #programs:
       ../../modules/programs/ausweisapp.nix
@@ -57,7 +58,7 @@
   networking = {
     hostName = "desktop-hannover";
     #interfaces.eno1.wakeOnLan.enable = true;
-    enableIPv6 = false;
+    #enableIPv6 = false;
   };
 
   services.zerotierone = {

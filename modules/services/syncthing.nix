@@ -16,11 +16,13 @@
         "thinkpad-jo" = { id = "ODVSYCS-7YKGOWB-L2ZJBAD-ZUSXLZ7-MCPFZHL-HBW7PZT-G33POAX-5UTA4AW"; };
         "desktop-jo" = { id = "EGHVULC-WUNGSR3-FSHCGLE-VI7F2RO-YNRRZV3-FWVSHXZ-BGOCE6P-XQJJEQ7"; };
         "nothing-phone" = { id = "5MSIYRP-5FZXFO5-TGZEEGX-BOLIYVF-YH3IZWD-O2NUGMK-YPS2D2P-KO7P7AN"; };
+        "desktop-hannover" = { id = "KPL2ARX-7PSY7CS-YUUCJC5-AO3SPWS-ZPGLFGG-H5ANDBX-A5DWDJR-2WXKGA7"; }; 
       };
       folders = {
         "z2tid-uvgee" = {         # Name of folder in Syncthing, also the folder ID - "johannes"
+          name = "johannes";
           path = "/home/johannes/personal-cloud/";    # Which folder to add to Syncthing
-          devices = [ "FUJITSU-D3431-A" "thinkpad-jo" "desktop-jo" "nothing-phone" ];      # Which devices to share the folder with
+          devices = [ "FUJITSU-D3431-A" "thinkpad-jo" "desktop-jo" "nothing-phone" "desktop-hannover" ];      # Which devices to share the folder with
         };
       };
     };
