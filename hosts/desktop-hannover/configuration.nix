@@ -16,11 +16,14 @@
     #import basics, which are the same for all machines
     ../../modules/core
 
+    #import agenix keys as variables (age.secrets.*)
+    ./modules/agenix.nix
+
     #system:
       ./modules/johannes.nix  # user-specific-configuration
-
       ./modules/audio.nix
       ../../modules/system/networking
+      ../../modules/system/networking/airvpn.nix
       ../../modules/system/bluetooth.nix
       ../../modules/system/virtualisation.nix
       ../../modules/system/displayManager.nix
@@ -62,11 +65,19 @@
   };
 
   services.zerotierone = {
-  enable = true;
-  joinNetworks = [
-    "08752e18b19b596f"
-  ];
-};
+    enable = true;
+    joinNetworks = [
+      "08752e18b19b596f"
+    ];
+  };
+
+  services.airvpn = {
+    enable = true;
+    address = [
+      "10.144.100.33/32"
+      "fd7d:76ee:e68f:a993:a5f5:768f:e57c:1e4/128"
+    ];
+  };
 
 
   services = {
@@ -121,6 +132,8 @@
     usbutils # needed for usb / serial management
     arduino-ide # Arduino IDE to create and deploy sketches as well as view the serial monitor
     #nixFlakes.packages.x86_64-linux.deej  #Small Programm to read and Apply Inputs from arduino-audio controllers, based on the "deej" system
+
+    #inputs.agenix.packages.x86_64-linux.default #secrets management
   ];
 
 

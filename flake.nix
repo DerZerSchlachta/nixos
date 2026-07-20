@@ -43,6 +43,9 @@
 	
         desktop-hannover = {
           user = "johannes";
+          extraModules = [
+            inputs.agenix.nixosModules.default
+          ];
         };
 
         thinkpad-jo = {

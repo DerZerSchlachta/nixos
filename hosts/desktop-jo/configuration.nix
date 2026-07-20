@@ -124,12 +124,20 @@
 };
 
   
-services.zerotierone = {
-  enable = true;
-  joinNetworks = [
-    "08752e18b19b596f"
-  ];
-};
+  services.zerotierone = {
+    enable = true;
+    joinNetworks = [
+      "08752e18b19b596f"
+    ];
+  };
+
+  servies.airvpn = {
+    enable = true;
+    address = [
+      "10.141.204.161/32"
+      "fd7d:76ee:e68f:a993:2624:7456:c62e:159a/128"
+    ];
+  }
 
 
   fileSystems."/mnt/Johannes" = {
