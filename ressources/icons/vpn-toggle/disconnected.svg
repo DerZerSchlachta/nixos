@@ -1,5 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<?xml version="1.0" encoding="utf-8"?>
 <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7 15C5.34315 15 4 13.6569 4 12C4 10.3431 5.34315 9 7 9C8.65685 9 10 10.3431 10 12C10 13.6569 8.65685 15 7 15Z" fill="#000000"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M24 12C24 8.13401 20.866 5 17 5H7C3.13401 5 0 8.13401 0 12C0 15.866 3.13401 19 7 19H17C20.866 19 24 15.866 24 12ZM17 7H7C4.23858 7 2 9.23858 2 12C2 14.7614 4.23858 17 7 17H17C19.7614 17 22 14.7614 22 12C22 9.23858 19.7614 7 17 7Z" fill="#000000"/>
+  <path d="M 7 11.103 C 5.343 11.103 4 9.759 4 8.103 C 4 6.446 5.343 5.103 7 5.103 C 8.657 5.103 10 6.446 10 8.103 C 10 9.759 8.657 11.103 7 11.103 Z" fill="#000000"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M 24 8.103 C 24 4.237 20.866 1.103 17 1.103 L 7 1.103 C 3.134 1.103 0 4.237 0 8.103 C 0 11.969 3.134 15.103 7 15.103 L 17 15.103 C 20.866 15.103 24 11.969 24 8.103 Z M 17 3.103 L 7 3.103 C 4.239 3.103 2 5.341 2 8.103 C 2 10.864 4.239 13.103 7 13.103 L 17 13.103 C 19.761 13.103 22 10.864 22 8.103 C 22 5.341 19.761 3.103 17 3.103 Z" fill="#000000"/>
+  <text style="fill: rgb(0, 0, 0); font-family: &quot;Arial&quot;, sans-serif; font-size: 5px; white-space: pre;"><tspan x="1" y="20.533">VPN </tspan><tspan style="fill: rgb(244, 11, 11);">OFF</tspan></text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="369.749" y="-1.768">Geben Sie hier Ihren Text ein</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="35.136" y="7.113">Geben Sie hier Ihren Text ein</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="17.832" y="8.727"> </text>
 </svg>
