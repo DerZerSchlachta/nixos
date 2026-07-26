@@ -24,6 +24,8 @@
     dua
     dysk
 
+    direnv
+
     tldr # helpful commandline tool which explains a given command
     git # git repository managemnet
     wget # downloader

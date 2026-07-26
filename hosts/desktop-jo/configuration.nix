@@ -16,6 +16,9 @@
     #import basics, which are the same for all machines
     ../../modules/core    
 
+    #import agenix key management module
+    ./modules/agenix.nix
+
     #system:
       ./modules/nvidia.nix # gpu-driver config (nvidia)
       ./modules/johannes.nix  # user-specific-configuration
@@ -63,40 +66,23 @@
     interfaces.eno1.wakeOnLan.enable = true;
   };
 
-  services.prowlarr = {
-    enable = true;
-    openFirewall = true;
-  };
-  services.flaresolverr = {
-    enable = true;
-    openFirewall = true;
-  };
-
-
-  /*
-  services.create_ap = {
-    enable = true;
-    settings = {
-      INTERNET_IFACE = "eno1";
-      WIFI_IFACE = "wlp7s0";
-      SSID = "JoHotspot";
-      PASSPHRASE = "1q2w3e4r";
-    };
-  };
-  */
   
   services = {
     flatpak.enable = true; # installing (non-declarative) packages through flatpak / flathub
     udisks2.enable = true;
   };
-    services.displayManager.autoLogin = {
+
+  /*    
+  services.displayManager.autoLogin = {
       enable = true;
       user = "johannes";
     };
-  
+  */
+  /*
   programs = {
     droidcam.enable = true;
   };
+  */
 
   # List packages installed in system profile:
   environment.systemPackages = with pkgs; [
@@ -116,13 +102,6 @@
     inputs.agenix.packages.x86_64-linux.default
   ];
 
-
-
-  services.tor = {
-    enable = true;
-    openFirewall = true;
-};
-
   
   services.zerotierone = {
     enable = true;
@@ -131,13 +110,15 @@
     ];
   };
 
-  servies.airvpn = {
+  services.airvpn = {
     enable = true;
+    allowUnprivilegedControl = true;
+    installPanelToggle = true; 
     address = [
       "10.141.204.161/32"
       "fd7d:76ee:e68f:a993:2624:7456:c62e:159a/128"
     ];
-  }
+  };
 
 
   fileSystems."/mnt/Johannes" = {
@@ -160,7 +141,7 @@
         "nofail"
       ];
     };
-    fileSystems."/mnt/paperless-scans" = {
+  fileSystems."/mnt/paperless-scans" = {
     device = "192.168.178.202:/mnt/user/paperless-scans";
     fsType = "nfs";
     options = [
