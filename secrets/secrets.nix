@@ -5,4 +5,5 @@ in
 {
   "airvpn-key.age".publicKeys = [ desktop-jo desktop-hannover ];
   "airvpn-psk.age".publicKeys = [ desktop-jo desktop-hannover ];
+  "smb_server_pw.age".publicKeys = [ desktop-jo desktop-hannover ];
 }

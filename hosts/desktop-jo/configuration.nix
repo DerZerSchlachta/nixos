@@ -22,9 +22,10 @@
     #system:
       ./modules/nvidia.nix # gpu-driver config (nvidia)
       ./modules/johannes.nix  # user-specific-configuration
+      ./modules/system/filesystems.nix # network filesystems from the server
 
       ../../modules/system/audio.nix
-      ../../modules/system/networking
+      ../../modules/system/networking 
       ../../modules/system/networking/airvpn.nix
       ../../modules/system/bluetooth.nix
       ../../modules/system/virtualisation.nix
@@ -100,16 +101,20 @@
     protontricks
     feather #crypto wallet for monero
     inputs.agenix.packages.x86_64-linux.default
+
+    scrcpy
+    gnirehtet
   ];
 
-  
+  /*
   services.zerotierone = {
     enable = true;
     joinNetworks = [
       "08752e18b19b596f"
     ];
   };
-
+  */
+  
   services.airvpn = {
     enable = true;
     allowUnprivilegedControl = true;
@@ -117,38 +122,6 @@
     address = [
       "10.141.204.161/32"
       "fd7d:76ee:e68f:a993:2624:7456:c62e:159a/128"
-    ];
-  };
-
-
-  fileSystems."/mnt/Johannes" = {
-    device = "192.168.178.202:/mnt/user/Johannes";
-    fsType = "nfs";
-    options = [
-      "x-systemd.automount"
-      "x-systemd.requires=network-online.target"
-      "x-systemd.after=network-online.target"
-      "nofail"
-    ];
-  };
-  fileSystems."/mnt/media" = {
-      device = "192.168.178.202:/mnt/user/Media";
-      fsType = "nfs";
-      options = [
-        "x-systemd.automount"
-        "x-systemd.requires=network-online.target"
-        "x-systemd.after=network-online.target"
-        "nofail"
-      ];
-    };
-  fileSystems."/mnt/paperless-scans" = {
-    device = "192.168.178.202:/mnt/user/paperless-scans";
-    fsType = "nfs";
-    options = [
-      "x-systemd.automount"
-      "x-systemd.requires=network-online.target"
-      "x-systemd.after=network-online.target"
-      "nofail"
     ];
   };
 

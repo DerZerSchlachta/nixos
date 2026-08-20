@@ -19,7 +19,7 @@
       netDevices = {
         DruckerZuHause = {
           model = "MFC-J470DW";
-          ip = "192.168.188.28";
+          ip = "192.168.178.28";
         };
       };
     };
