@@ -13,7 +13,7 @@ in
       type = lib.types.listOf lib.types.str;
       default = [ ];
       description = ''
-        WireGuard addresses assigned to this host by AirVPN.
+        WireGuard address assigned to this host by AirVPN.
 
         This must be set when services.airvpn.enable is true.
       '';

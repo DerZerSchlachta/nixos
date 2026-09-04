@@ -26,36 +26,32 @@
     packages =
       (with pkgs; [
         # CLI
-        freerdp
-        feishin
+        #freerdp
 
         discord
   
-        freecad
+        #freecad
         vscode.fhs
 
         firefox
+
+        # Music:
+        #streamrip
+        #lmms
+        feishin
+
+        # Productivity
+        
+        libreoffice
+
+        # Creativity
+        #inkscape
+        gimp3
 
         thunderbird
         telegram-desktop
         signal-desktop
 
-        androidStudioPackages.dev
-      ])
-      ++
-      (with stablePkgs; [
-
-        # Music:
-        #streamrip
-        #lmms
-
-        # Productivity
-        
-        #libreoffice
-
-        # Creativity
-        #inkscape
-        gimp3
       ]);
   };
 

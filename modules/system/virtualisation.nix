@@ -1,11 +1,5 @@
 # modules/virtualisation.nix
 { config, lib, pkgs, ... }:
-let
-  hostname  = config.networking.hostName or "";
-  isDesktop = hostname == "desktop-jo";
-  isLaptop  = hostname == "thinkpad-jo";
-  isServer  = hostname == "server";
-in
 {
   #### Docker: enabled everywhere, behavior differs per host
 
@@ -28,8 +22,8 @@ in
   #### VMware: host only where it makes sense
 
   # Maybe only on desktop:
-  virtualisation.vmware.host.enable = lib.mkIf (isDesktop) true;
+  virtualisation.vmware.host.enable = true;
 
   # Guest tools: maybe only on desktop + laptop, not server:
-  virtualisation.vmware.guest.enable = lib.mkIf (isDesktop) true;
+  virtualisation.vmware.guest.enable = true;
 }

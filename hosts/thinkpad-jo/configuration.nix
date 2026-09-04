@@ -28,12 +28,15 @@
     #import basics, which are the same for all machines
     ../../modules/core    
 
+    ./modules/agenix.nix
+
     #system:
       ./modules/johannes.nix  # user-specific-configuration
       ./modules/power.nix
 
       ../../modules/system/audio.nix
       ../../modules/system/networking
+      ../../modules/system/networking/airvpn.nix
       ../../modules/system/bluetooth.nix
       ../../modules/system/virtualisation.nix
       ./modules/display.nix
@@ -68,42 +71,13 @@
     udisks2.enable = true;
   };
 
-  systemd.user.services.copyparty-sync = {
-    description = "Sync Copyparty folder locally";
-    serviceConfig = {
-      ExecStart = "${pkgs.rclone}/bin/rclone mount mediaserver: /home/johannes/mediaserver --vfs-cache-mode writes --buffer-size 64M --dir-cache-time 1h";
-      Restart = "always";
-    };
-    wantedBy = [ "default.target" ];
+  services.airvpn = {
+    enable = false;
+    address = [
+      "10.174.247.15/32"
+      "fd7d:76ee:e68f:a993:478:8477:4e55:f585/128"
+    ];
   };
-
-  systemd.user.services.mediaserver-mount = {
-    description = "Mount mediaserver via rclone";
-    serviceConfig = {
-      ExecStart = "${pkgs.rclone}/bin/rclone mount mediaserver: /home/johannes/mediaserver \
-        --vfs-cache-mode writes \
-        --buffer-size 64M \
-        --dir-cache-time 1h";
-      Restart = "always";
-    };
-    wantedBy = [ "default.target" ];
-  };
-
-  boot.kernel.sysctl = {
-    "net.ipv6.conf.all.disable_ipv6" = 1;
-    "net.ipv6.conf.default.disable_ipv6" = 1;
-
-    # 👇 THIS is the key line you're missing
-    "net.ipv6.conf.all.accept_ra" = 0;
-    "net.ipv6.conf.default.accept_ra" = 0;
-  };
-
-  hardware.amdgpu = {
-    initrd.enable = true;
-    overdrive.enable = true;
-  };
-  services.lact.enable = true;
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
