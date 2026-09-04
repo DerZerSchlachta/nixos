@@ -18,7 +18,7 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    deej.url = "github:DerZerSchlachta/deej-linux";
+    deej.url = "github:johannes-b-e/deej-linux";
 
     agenix.url = "github:ryantm/agenix";  #secrets management tool
   };

@@ -48,15 +48,15 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1776000196,
-        "narHash": "sha256-uk/uo/xAIBHg5pJ9YF/4QukLEcnvP7ngDnIx4ZKMKXw=",
-        "owner": "DerZerSchlachta",
+        "lastModified": 1788192168,
+        "narHash": "sha256-RTMNLvpCr5sa9olizogkIXAYbE0FZuDBNEU6z2PMaIQ=",
+        "owner": "johannes-b-e",
         "repo": "deej-linux",
-        "rev": "a09ef890c0407026b3b094f1b6cef720fbf89c13",
+        "rev": "d02981c96eae236642d1dfb59db7c440181a4046",
         "type": "github"
       },
       "original": {
-        "owner": "DerZerSchlachta",
+        "owner": "johannes-b-e",
         "repo": "deej-linux",
         "type": "github"
       }

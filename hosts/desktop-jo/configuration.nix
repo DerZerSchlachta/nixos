@@ -104,6 +104,10 @@
 
     scrcpy
     gnirehtet
+
+    playerctl #needed for deej-mediacontrols
+
+    #prismlauncher-cracked
   ];
 
   /*
