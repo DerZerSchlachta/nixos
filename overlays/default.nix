@@ -6,4 +6,5 @@
 
   (import ./handbrake.nix)
   (import ./freecad.nix)
+  (import ./rimsort.nix)
 ]
